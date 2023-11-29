@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            .upload{
+                  float: right;
+            }
+            .recipt{
+                  float: left;
+            }
+            .display_img{
+                  font-size: 50px;
+                  padding: 10px;
+                  border: 3px solid #ddd;
+                  width: 250px;
+                  height: 250px;
+                  text-align:center;
+                  box-sizing: border-box;
+                  color: gray;
+                  display: flex; /*彈性*/
+                  justify-content: center;/*使子元素在 Flex 容器中水平居中對齊*/
+                  align-items: center;/*子元素在 Flex 容器中垂直居中對齊*/
+            }
+      </style>
+</head>
+<body>
+      <div>
+            <h1 align="center">作品分享</h1>
+            <hr>
+      </div>
+      <div>
+            <button id="upload" class="upload"><a href="">上傳作品</a></button><br>
+            
+            <!-- 用來顯示圖片的區域 -->
+            <div id="display_img" class="display_img">image</div>
+
+            <label class="recipt">食譜名稱 : <input type="text" id="recipt"></label><br>
+            <!-- 上傳圖片的按鈕 -->
+            <label class="btn btn-info">
+                  <input id="upload_img" style="display:none;" type="file" onchange="previewImage(event)">
+                  <i class="fa fa-photo"></i> 上傳圖片
+            </label>
+            
+            
+      </div>
+      <script>
+            function previewImage(event) {
+                  var input = event.target;//從事件中取得目標元素（此處為 input 元素）
+                  var reader = new FileReader();// 創建FileReader物件，用於讀取圖片檔案
+
+                  reader.onload = function(){// 當FileReader讀取完成時執行的動作
+                        var imgElement = document.createElement("img");
+                        imgElement.src = reader.result;// 將圖片的資料（Data URL）指派給img元素的src屬性
+                        imgElement.style.maxWidth = "300px"; // 設定圖片最大寬度
+                        document.getElementById("display_img").innerHTML = ""; // 清空預覽區域
+                        document.getElementById("display_img").appendChild(imgElement); // 在預覽區域顯示圖片
+            };
+            reader.readAsDataURL(input.files[0]);//讀取檔案，將檔案轉換為 Data URL 格式
+      }
+      </script>
+</body>
+</html>
