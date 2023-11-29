@@ -5,10 +5,20 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
       <style>
+            .starpic{
+                  margin-top: 10px;
+                  width:30px;
+            }
+            .outside{
+                  display: flex;
+            }
+            .inside{
+                  flex-direction: row;
+            }
             .upload{
                   float: right;
             }
-            .recipt{
+            .recipe{
                   float: left;
             }
             .display_img{
@@ -31,22 +41,45 @@
             <h1 align="center">作品分享</h1>
             <hr>
       </div>
-      <div>
-            <button id="upload" class="upload"><a href="">上傳作品</a></button><br>
-            
-            <!-- 用來顯示圖片的區域 -->
-            <div id="display_img" class="display_img">image</div>
+      <div>       
+            <div class="outside">
+                  <!-- 用來顯示圖片的區域 -->
+                  <div class="inside">
+                        <div id="display_img" class="display_img">image</div>
+                  </div>
+                  <!-- 輸入地方 -->
+                  <div class="inside">
+                        <label class="recipe">
+                              食譜名稱 : <input type="text" id="recipe">
+                        </label><br>
+                        <label class="content">
+                              <div id="star">實用程度 : </div>
+                        </label><br>
+                        <label class="content">
+                              心得分享 : <input type="text" id="content">
+                        </label><br>
+                        <button id="upload" class="upload" style="margin-top:10px;">上傳作品</button><br>
+                  </div>
+            </div>
 
-            <label class="recipt">食譜名稱 : <input type="text" id="recipt"></label><br>
-            <!-- 上傳圖片的按鈕 -->
             <label class="btn btn-info">
                   <input id="upload_img" style="display:none;" type="file" onchange="previewImage(event)">
-                  <i class="fa fa-photo"></i> 上傳圖片
+                  <i class="fa fa-photo"></i>上傳圖片
             </label>
             
             
       </div>
       <script>
+            let star=document.getElementById("star");
+
+            showstar();
+            function showstar(){
+                  let res='實用程度 : ';
+                  for(let i=0;i<5;i++){
+                        res+=`<img src="starline.png" class="starpic" id="star-${i+1}" onclick="star">`;
+                  }
+                  star.innerHTML=res;
+            }
             function previewImage(event) {
                   var input = event.target;//從事件中取得目標元素（此處為 input 元素）
                   var reader = new FileReader();// 創建FileReader物件，用於讀取圖片檔案
