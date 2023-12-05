@@ -3,22 +3,29 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
+      <title>底哩雪斯</title>
       <style>
+            @import url("https://fonts.googleapis.com/css?family=Zen%20Old%20Mincho");
+            body{
+                  font-family:  'Zen Old Mincho';
+            }
             h1{  
                   text-align: center;
             }
             nav {
-                  font-family: 'Perpetua';
                   font-weight: bold;
+                  font-size: 20px;
                   color: white;
-                  border: 2px solid rgb(161, 185, 241);
                   text-align: center;
                   width: calc(100%/3);
-                  background-color: royalblue;
+                  background-color: #CC3333;
                   float: left;
                   box-sizing: border-box;
                   text-decoration: none;
+                  height:35px;
+                  justify-content: center;
+                  align-items: center;
+                  line-height: 35px;
             }
             ul {
                   position: absolute;
@@ -29,40 +36,91 @@
                   width: 98%;
             }
             nav:hover ul{
-                        display: block;
+                  display: block;
             }
             nav ul li{
-                        border: 2px solid royalblue;
-                        text-align: center;
-                        background-color: white;
-                        width:calc(100%/3);
+                  font-size: 18px;
+                  border: 0.5px solid #CC3333;
+                  text-align: center;
+                  background-color: #F0F0F0;
+                  width:calc(100%/3);
                         
             }
             nav ul li:hover{
-                        background-color: powderblue;
+                  background-color: #D94600;
+                  color:white;
+            }
+            li a{
+                  color:black;
+                  text-decoration:none;
+            }
+            li{
+                  color:black;
+            }
+            a:hover{
+                  color: white;
+            }
+            button{
+                  font-family:  'Zen Old Mincho';
+                  font-size: 15px;
+                  margin-bottom: 10px;
+                  height: 30px;
             }
       </style>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-      <h1>揪齁呷</h1>
-      <nav>食譜分類
-            <ul>
+      <h1>底哩雪斯</h1>
+      <nav id="recipe_dir">食譜分類
+            <ul class="dishes">
                   <li><a href="" target="_blank">臺式料理</a></li>
                   <li><a href="" target="_blank">韓式料理</a></li>
                   <li><a href="" target="_blank">日式料理</a></li>
                   <li><a href="" target="_blank">義式料理</a></li>
+                  <li id="have_no_idea">想不到就<br>
+                        <button onclick="pickdishes()">點我點我</button>
+                  </li>
             </ul>
       </nav>
 
-      <nav>社群分享
-            <ul>
+      <nav id="social">社群分享
+            <ul class="socialdetail">
                   <li><a href="" target="_blank">美食探店</a></li>
                   <li><a href="" target="_blank">作品分享</a></li>        
             </ul>
       </nav>
 
-      <nav><a href="" target="_blank">聯絡我們</a></nav> 
+      <nav><a href="" target="_blank" style="text-decoration:none; color:white;">
+            聯絡我們</a></nav>
 
       <div id="display_img"></div>
+
+      <script>
+            //這邊是處理動畫事件
+            $("ul").hide();
+            $("#recipe_dir").mouseenter(function(){
+                  $(".dishes").slideDown("slow");
+            });
+            $("#recipe_dir").mouseleave(function(){
+                  $("ul").hide();
+            });
+            
+            $("#social").mouseenter(function(){
+                  $(".socialdetail").slideDown("fast");
+            });
+            $("#social").mouseleave(function(){
+                  $("ul").hide();
+            });
+      </script>
+
+      <script>
+            let noidea=document.getElementById("have_no_idea");
+            function pickdishes(){
+                  let final="想不到就<br>";
+                  final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
+                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
+                  noidea.innerHTML=final;
+            }
+      </script>
 </body>
 </html>
