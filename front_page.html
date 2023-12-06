@@ -27,6 +27,10 @@
                   align-items: center;
                   line-height: 35px;
             }
+            nav:hover{
+                  background-color: rgb(177, 43, 43);
+            }
+
             ul {
                   position: absolute;
                   display: none;
@@ -66,6 +70,8 @@
                   margin-bottom: 10px;
                   height: 30px;
             }
+            
+            
       </style>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -73,10 +79,10 @@
       <h1>底哩雪斯</h1>
       <nav id="recipe_dir">食譜分類
             <ul class="dishes">
-                  <li><a href="menu//taiwan//taiwan.html" target="_blank">臺式料理</a></li>
-                  <li><a href="menu//korea//korea.html" target="_blank">韓式料理</a></li>
-                  <li><a href="menu//japan//japan.html" target="_blank">日式料理</a></li>
-                  <li><a href="menu//italy//italy.html" target="_blank">義式料理</a></li>
+                  <li><a href="menu//taiwan//taiwan.html" target="_self">臺式料理</a></li>
+                  <li><a href="menu//korea//korea.html" target="_self">韓式料理</a></li>
+                  <li><a href="menu//japan//japan.html" target="_self">日式料理</a></li>
+                  <li><a href="menu//italy//italy.html" target="_self">義式料理</a></li>
                   <li id="have_no_idea">想不到就<br>
                         <button onclick="pickdishes()">點我點我</button>
                   </li>
@@ -85,15 +91,21 @@
 
       <nav id="social">社群分享
             <ul class="socialdetail">
-                  <li><a href="" target="_blank">美食探店</a></li>
-                  <li><a href="" target="_blank">作品分享</a></li>        
+                  <li><a href="" target="_self">美食探店</a></li>
+                  <li><a href="" target="_self">作品分享</a></li>        
             </ul>
       </nav>
 
-      <nav><a href="contact_us//contact.html" target="_self" style="text-decoration:none; color:white;">
-            聯絡我們</a></nav>
+      <nav id="contact"><a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;">
+            聯絡我們</a>
+      </nav>
 
       <div id="display_img"></div>
+
+      <div id="contactContainer"></div>
+
+
+      <!-- <iframe src="contact_us//contact.html" title="3-1"  width="100%" height="550px"></iframe> -->
 
       <script>
             //這邊是處理動畫事件
@@ -120,6 +132,22 @@
                   final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
                   final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
                   noidea.innerHTML=final;
+            }
+
+            
+            let contactContainer = document.getElementById("contactContainer");
+            function contact_us() {
+            event.preventDefault();
+            
+            let iframe = document.createElement("iframe");
+            iframe.src = "contact_us/contact.html"; 
+            iframe.title = "Contact Form";
+            iframe.width = "100%";
+            iframe.height = "550px";
+
+            
+            contactContainer.innerHTML = '';
+            contactContainer.append(iframe);
             }
       </script>
 </body>
