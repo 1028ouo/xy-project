@@ -70,8 +70,9 @@
                   margin-bottom: 10px;
                   height: 30px;
             }
-            
-            
+            iframe{
+                  border: none;
+            }
       </style>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -102,10 +103,7 @@
 
       <div id="display_img"></div>
 
-      <div id="contactContainer"></div>
-
-
-      <!-- <iframe src="contact_us//contact.html" title="3-1"  width="100%" height="550px"></iframe> -->
+      <div id="contact_container"></div>
 
       <script>
             //這邊是處理動畫事件
@@ -134,9 +132,8 @@
                   noidea.innerHTML=final;
             }
 
-            
-            let contactContainer = document.getElementById("contactContainer");
-            function contact_us() {
+            let contactContainer = document.getElementById("contact_container");
+            function contact_us(){
             event.preventDefault();
             
             let iframe = document.createElement("iframe");
@@ -145,7 +142,6 @@
             iframe.width = "100%";
             iframe.height = "550px";
 
-            
             contactContainer.innerHTML = '';
             contactContainer.append(iframe);
             }
