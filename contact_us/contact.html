@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>底哩雪斯</title>
+      <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
+            body{
+                  font-family: 'Noto Serif TC', serif;
+            }
+            h1{  
+                  text-align: center;
+            }
+            nav {
+                  font-weight: bold;
+                  font-size: 20px;
+                  color: white;
+                  text-align: center;
+                  width: calc(100%/3);
+                  background-color: #CC3333;
+                  float: left;
+                  box-sizing: border-box;
+                  text-decoration: none;
+                  height:35px;
+                  justify-content: center;
+                  align-items: center;
+                  line-height: 35px;
+            }
+            nav:hover{
+                  background-color: rgb(177, 43, 43);
+            }
+            ul {
+                  position: absolute;
+                  display: none;
+                  list-style: none;
+                  margin: 0;
+                  padding: 0;
+                  width: 98%;
+            }
+            nav:hover ul{
+                  display: block;
+            }
+            nav ul li{
+                  font-size: 18px;
+                  border: 0.5px solid #CC3333;
+                  text-align: center;
+                  background-color: #F0F0F0;
+                  width:calc(100%/3);
+                        
+            }
+            nav ul li:hover{
+                  background-color: #D94600;
+                  color:white;
+            }
+            li a{
+                  color:black;
+                  text-decoration:none;
+            }
+            li{
+                  color:black;
+            }
+            a:hover{
+                  color: white;
+            }
+            button{
+                  font-family: 'Noto Serif TC', serif;
+                  font-size: 15px;
+                  margin-bottom: 10px;
+                  height: 30px;
+            }
+            .outside{
+                  justify-content: center;
+                  align-items: center;
+                  display: flex;
+            }
+            .inside{
+                  width:400px;
+                  height:250;
+                  box-sizing: border-box;
+                  justify-content: center;
+                  flex-direction: column;
+            }
+            img   {
+                  max-width: 100%;
+                  height: auto;
+            }
+            .ouremail{
+                  text-decoration: none;
+            }
+            .ouremail:hover{
+                  color:#D94600;
+            }
+            .floattitle{
+                  position: fixed;
+                  bottom: 0;
+                  width: 100%;
+                  text-align: center;
+                  left: 0;
+                  height:65px;
+                  background-color: #CC3333;
+                  justify-content: center;
+                  flex-direction: column;
+                  font-size: 20px;
+                  color:white;
+                  opacity: 0.9;
+            }
+            
+      </style>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+      <h1>底哩雪斯</h1>
+      <div class="outside" style="margin-bottom: 100px;">
+
+            <nav id="recipe_dir">食譜分類
+                  <ul class="dishes">
+                        <li><a href="menu//taiwan//taiwan.html" target="_self">臺式料理</a></li>
+                        <li><a href="menu//korea//korea.html" target="_self">韓式料理</a></li>
+                        <li><a href="menu//japan//japan.html" target="_self">日式料理</a></li>
+                        <li><a href="menu//italy//italy.html" target="_self">義式料理</a></li>
+                        <li id="have_no_idea">想不到就<br>
+                              <button onclick="pickdishes()">點我點我</button>
+                        </li>
+                  </ul>
+            </nav>
+
+            <nav id="social">社群分享
+                  <ul class="socialdetail">
+                        <li><a href="" target="_self">美食探店</a></li>
+                        <li><a href="" target="_self">作品分享</a></li>        
+                  </ul>
+            </nav>
+
+            <nav id="contact"><a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;">
+                  聯絡我們</a>
+            </nav>
+      </div>
+
+      <div class="outside">
+            <div class="inside" style="margin-right: 25px; margin-left: 10px;">
+                  <img src="https://storage.googleapis.com/www-cw-com-tw/article/202112/article-61c92632cc794.jpg">
+                  <p>創作者：趙妍禎<br>
+                        EMAIL：<a href="mailto:1234@gmail.com" class="ouremail">1234@gmail.com</a>
+                  </p>
+                  
+            </div>
+
+            <div class="inside" style="margin-right: 10px; margin-left: 25px;">
+                  <img src="https://image1.gamme.com.tw/news2/2023/38/2/qZyRpqHGxdGXrNmdlbG4sI_fxLrU.webp">
+                  <p>創作者：蔡翊宣<br>
+                        EMAIL：<a href="mailto:shellyyi1028@gmail.com" class="ouremail">shellyyi1028@gmail.com</a>
+                  </p>
+            </div>
+      </div>
+
+      <div class="floattitle">
+            <p>有任何問題歡迎聯絡我們！</p>
+      </div>
+      
+      
+      <script>
+            //這邊是處理動畫事件
+            $("ul").hide();
+            $("#recipe_dir").mouseenter(function(){
+                  $(".dishes").slideDown("slow");
+            });
+            $("#recipe_dir").mouseleave(function(){
+                  $("ul").hide();
+            });
+            
+            $("#social").mouseenter(function(){
+                  $(".socialdetail").slideDown("slow");
+            });
+            $("#social").mouseleave(function(){
+                  $("ul").hide();
+            });
+      </script>
+
+      <script>
+            let noidea=document.getElementById("have_no_idea");
+            function pickdishes(){
+                  let final="想不到就<br>";
+                  final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
+                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
+                  noidea.innerHTML=final;
+            }
+      </script>
+</body>
+</html>

@@ -103,8 +103,6 @@
 
       <div id="display_img"></div>
 
-      <div id="contact_container"></div>
-
       <script>
             //這邊是處理動畫事件
             $("ul").hide();
@@ -130,20 +128,6 @@
                   final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
                   final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
                   noidea.innerHTML=final;
-            }
-
-            let contactContainer = document.getElementById("contact_container");
-            function contact_us(){
-            event.preventDefault();
-            
-            let iframe = document.createElement("iframe");
-            iframe.src = "contact_us/contact.html"; 
-            iframe.title = "Contact Form";
-            iframe.width = "100%";
-            iframe.height = "550px";
-
-            contactContainer.innerHTML = '';
-            contactContainer.append(iframe);
             }
       </script>
 </body>
