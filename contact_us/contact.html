@@ -76,10 +76,13 @@
             }
             .inside{
                   width:400px;
-                  height:250px;
+                  height:400px;
+                  padding:35px;
                   box-sizing: border-box;
                   justify-content: center;
                   flex-direction: column;
+                  border: 1px solid gray;
+                  border-radius: 6px;
             }
             img   {
                   max-width: 100%;
@@ -118,31 +121,31 @@
 </head>
 <body>
       <h1><a href="..//front_page.html" style="color:black; text-decoration: none;">底哩雪斯</a></h1>
-      <div class="outside" style="margin-bottom: 100px;">
 
-            <nav id="recipe_dir">食譜分類
-                  <ul class="dishes">
-                        <li><a href="menu//taiwan//taiwan.html" target="_self">臺式料理</a></li>
-                        <li><a href="menu//korea//korea.html" target="_self">韓式料理</a></li>
-                        <li><a href="menu//japan//japan.html" target="_self">日式料理</a></li>
-                        <li><a href="menu//italy//italy.html" target="_self">義式料理</a></li>
-                        <li id="have_no_idea">想不到就<br>
-                              <button onclick="pickdishes()">點我點我</button>
-                        </li>
-                  </ul>
-            </nav>
+      <nav id="recipe_dir">食譜分類
+            <ul class="dishes">
+                  <li><a href="menu//taiwan//taiwan.html" target="_self">臺式料理</a></li>
+                  <li><a href="menu//korea//korea.html" target="_self">韓式料理</a></li>
+                  <li><a href="menu//japan//japan.html" target="_self">日式料理</a></li>
+                  <li><a href="menu//italy//italy.html" target="_self">義式料理</a></li>
+                  <li id="have_no_idea">想不到就<br>
+                        <button onclick="pickdishes()">點我點我</button>
+                  </li>
+            </ul>
+      </nav>
 
-            <nav id="social">社群分享
-                  <ul class="socialdetail">
-                        <li><a href="" target="_self">美食探店</a></li>
-                        <li><a href="" target="_self">作品分享</a></li>        
-                  </ul>
-            </nav>
+      <nav id="social">社群分享
+            <ul class="socialdetail">
+                  <li><a href="" target="_self">美食探店</a></li>
+                  <li><a href="" target="_self">作品分享</a></li>        
+            </ul>
+      </nav>
 
-            <nav id="contact"><a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;">
-                  聯絡我們</a>
-            </nav>
-      </div>
+      <nav id="contact"><a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;">
+            聯絡我們</a>
+      </nav>
+
+      <p style="text-align:center; color:white;">嘻嘻被發現惹</p>
 
       <div class="outside">
             <div class="inside" id="zzz">
