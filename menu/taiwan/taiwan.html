@@ -62,7 +62,7 @@
             li{
                   color:black;
             }
-            a:hover{
+            .dishes a:hover{
                   color: white;
             }
             button{
@@ -81,22 +81,36 @@
                   height: 250px;
                   text-align: center;
             }
-            .image:hover{
-                  opacity: 0.7;
+            .image-container{
+                  border-bottom: 0;
             }
-
-            .dish {
+            .image-container:hover{
+                  opacity: 0.85;
+            }
+            .content{
+                  padding-top: 100px;
+                  padding-bottom: 100px;
+                  font-size: 30px;
+                  position: relative;
+                  color: white;
+                  text-align: center;
+                  top:-280px;
+                  opacity: 0;
+            }
+            
+            .content:hover{
+                  opacity: 1;
+            }
+            .dish{
+                  border-bottom: 0;
                   display: flex;
                   width: 50%;
                   margin: 0 auto;
                   padding: 70px;
                   padding-bottom: 0;
-
             }
-            
             .dish-content {
                   margin-left: 0px;
-                  
             }
             .dish h1{
                   text-align: left;
@@ -140,9 +154,16 @@
 
       <div id="contact_container"></div>
 
-      <div class="dish-wrap">
+      <div>
             <div class="dish">
-                  <a href="menu//taiwan//beef_noodles.html"><img src="beef_noodles.JPG" class="image"></a>
+                  <a href="menu//taiwan//beef_noodles.html" style="text-decoration: none;" >
+                        <div class="image-container">
+                              <img src="beef_noodles.JPG" class="image" title="點我看食譜">
+                              <div class="content">
+                                    <p>點我看食譜</p>
+                              </div>
+                        </div>
+                  </a>
                   <div class="dish-content">
                         <a href="menu//taiwan//beef_noodles.html" style="text-decoration: none;color: black;"><h1>牛肉麵</h1></a>
                         <p>牛肉麵是台灣最具代表性的麵食，常見的牛肉麵有分兩種，分別是紅燒和清燉，雖然大街小巷都有牛肉麵店，可是要做出真正受歡迎的好味道並不容易，一起來做一碗簡單又充滿台灣味的牛肉麵吧!</p>
@@ -150,18 +171,22 @@
             </div>
       </div>
 
-      <div class="dish-wrap">
+      <div>
             <div class="dish">
-                  <a href="menu//taiwan//beef_noodles.html"><img src="beef_noodles.JPG" class="image"></a>
+                  <a href="menu//taiwan//beef_noodles.html" style="text-decoration: none;" >
+                        <div class="image-container">
+                              <img src="beef_noodles.JPG" class="image" title="點我看食譜">
+                              <div class="content">
+                                    <p>點我看食譜</p>
+                              </div>
+                        </div>
+                  </a>
                   <div class="dish-content">
                         <a href="menu//taiwan//beef_noodles.html" style="text-decoration: none;color: black;"><h1>牛肉麵</h1></a>
                         <p>牛肉麵是台灣最具代表性的麵食，常見的牛肉麵有分兩種，分別是紅燒和清燉，雖然大街小巷都有牛肉麵店，可是要做出真正受歡迎的好味道並不容易，一起來做一碗簡單又充滿台灣味的牛肉麵吧!</p>
                   </div>
             </div>
       </div>
-
-
-        
 
       <script>
             //這邊是處理動畫事件
@@ -203,6 +228,7 @@
             contactContainer.innerHTML = '';
             contactContainer.append(iframe);
             }
+
       </script>
 </body>
 </html>

@@ -142,7 +142,12 @@
 
       <div class="dish-wrap">
             <div class="dish">
-                  <a href="menu//taiwan//beef_noodles.html"><img src="beef_noodles.JPG" class="image"></a>
+                  <a href="menu//taiwan//beef_noodles.html">
+                        <div>
+                              <img src="beef_noodles.JPG" class="image" onmouseover="mouseOver()" onmouseout="mouseOut()">
+                              <p id="hidden_text" style="opacity: 1;z-index: 2;">點我看食譜</p>
+                        </div>
+                  </a>
                   <div class="dish-content">
                         <a href="menu//taiwan//beef_noodles.html" style="text-decoration: none;color: black;"><h1>牛肉麵</h1></a>
                         <p>牛肉麵是台灣最具代表性的麵食，常見的牛肉麵有分兩種，分別是紅燒和清燉，雖然大街小巷都有牛肉麵店，可是要做出真正受歡迎的好味道並不容易，一起來做一碗簡單又充滿台灣味的牛肉麵吧!</p>
@@ -159,9 +164,6 @@
                   </div>
             </div>
       </div>
-
-
-        
 
       <script>
             //這邊是處理動畫事件
@@ -192,7 +194,7 @@
 
             let contactContainer = document.getElementById("contact_container");
             function contact_us(event){
-            event.preventDefault();
+            event.preventDefault(); //防止跳到新視窗
             
             let iframe = document.createElement("iframe");
             iframe.src = "contact_us/contact.html"; 
@@ -202,6 +204,14 @@
 
             contactContainer.innerHTML = '';
             contactContainer.append(iframe);
+            }
+
+            function mouseOver(){
+                  document.getElementById("hidden_text").style.opacity = 1;
+                  document.getElementById("hidden_text").style.zIndex = 2;
+            }
+            function mouseOut(){
+                  document.getElementById("hidden_text").style.opacity = 0;
             }
       </script>
 </body>
