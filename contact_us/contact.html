@@ -3,7 +3,7 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>底哩雪斯</title>
+      <title>CONTACT US</title>
       <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
             body{
@@ -22,8 +22,8 @@
                   float: left;
                   box-sizing: border-box;
                   text-decoration: none;
-                  height:35px;
-                  line-height: 35px;
+                  height:40px;
+                  line-height: 40px;
             }
             nav:hover{
                   background-color: rgb(177, 43, 43);
@@ -37,7 +37,7 @@
             }
             nav:hover ul{
                   display: block;
-                  width: calc(97%/3);
+                  width: calc(99%/3);
             }
             nav ul li{
                   font-size: 18px;
@@ -79,7 +79,7 @@
                   flex-direction: column;
                   border: 1px solid gray;
                   border-radius: 6px;
-                  margin:15px;
+                  margin:35px 75px;
             }
             img   {
                   width: 100%;
@@ -102,6 +102,9 @@
                   font-size: 20px;
                   color:white;
                   opacity: 0.9;
+            }
+            .boldtext{
+                  font-weight: bold;
             }
 
 
@@ -143,30 +146,30 @@
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-      <h1><a href="..//front_page.html" style="color:black; text-decoration: none;">底哩雪斯</a></h1>
+      <h1><a href="..//front_page.html" style="color:black; text-decoration: none;">DELICIOUS</a></h1>
 
-      <nav id="recipe_dir">食譜分類
+      <nav id="recipe_dir">Recipe Categories
             <ul class="dishes">
-                  <li><a href="menu//taiwan//taiwan.html" target="_self">臺式料理</a></li>
-                  <li><a href="menu//korea//korea.html" target="_self">韓式料理</a></li>
-                  <li><a href="menu//japan//japan.html" target="_self">日式料理</a></li>
-                  <li><a href="menu//italy//italy.html" target="_self">義式料理</a></li>
-                  <li id="have_no_idea">想不到就<br>
-                        <button onclick="pickdishes()">點我點我</button>
+                  <li><a href="menu//taiwan//taiwan.html" target="_self">Taiwanese Cuisine</a></li>
+                  <li><a href="menu//korea//korea.html" target="_self">Korean Cuisine</a></li>
+                  <li><a href="menu//japan//japan.html" target="_self">Japanese Cuisine</a></li>
+                  <li><a href="menu//italy//italy.html" target="_self">Italian Cuisine</a></li>
+                  <li id="have_no_idea">Have no ideas?<br>
+                        <button onclick="pickdishes()">Click me!</button>
                   </li>
             </ul>
       </nav>
 
-      <nav id="social">社群分享
+      <nav id="social">Social Sharing
             <ul class="socialdetail">
-                  <li><a href="" target="_self">美食探店</a></li>
-                  <li><a href="" target="_self">作品分享</a></li>        
+                  <li><a href="" target="_self">Food Exploration</a></li>
+                  <li><a href="" target="_self">Work Sharing</a></li>        
             </ul>
       </nav>
 
-      <nav id="contact"><a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;">
-            聯絡我們</a>
-      </nav>
+      <a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;"><nav id="contact">
+            Contact us
+      </nav></a>
 
       <p style="text-align:center; color:white;">嘻嘻被發現惹</p>
 
@@ -176,8 +179,8 @@
                         <img src="https://storage.googleapis.com/www-cw-com-tw/article/202112/article-61c92632cc794.jpg">
                   </div>
                   <div class="textdisplay">
-                        <p>創作者：趙妍禎<br>
-                              EMAIL：<a href="mailto:1234@gmail.com" class="ouremail">1234@gmail.com</a>
+                        <p><span class="boldtext">Creator：</span>Yen-Chen, Chao<br>
+                              <span class="boldtext">Email：</span><a href="mailto:1234@gmail.com" class="ouremail">1234@gmail.com</a>
                         </p>
                   </div>
                   
@@ -188,15 +191,15 @@
                         <img src="https://image1.gamme.com.tw/news2/2023/38/2/qZyRpqHGxdGXrNmdlbG4sI_fxLrU.webp">
                   </div>
                   <div class="textdisplay">
-                        <p>創作者：蔡翊宣<br>
-                              EMAIL：<a href="mailto:shellyyi1028@gmail.com" class="ouremail">shellyyi1028@gmail.com</a>
+                        <p><span class="boldtext">Creator：</span>Yi-Xuan, Tsai<br>
+                              <span class="boldtext">Email：</span><a href="mailto:shellyyi1028@gmail.com" class="ouremail">shellyyi1028@gmail.com</a>
                         </p>
                   </div>
             </div>
       </div>
 
       <div class="floattitle">
-            <p id="qqq">有任何問題歡迎聯絡我們！</p>
+            <p id="qqq">Please contact us if you have questions!</p>
       </div>
       
       
@@ -221,9 +224,9 @@
       <script>
             let noidea=document.getElementById("have_no_idea");
             function pickdishes(){
-                  let final="想不到就<br>";
-                  final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
-                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
+                  let final="Have no ideas?<br>";
+                  final+=`Beef Noodles`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
+                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">Replace</button>`;
                   noidea.innerHTML=final;
             }
       </script>
