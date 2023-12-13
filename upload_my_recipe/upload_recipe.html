@@ -5,9 +5,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>作品分享上傳</title>
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <link rel="stylesheet" href="css/style.css"/>
       <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
-            body{
+            *{
+                  margin:0;
+                  padding:0;
+                  box-sizing: border-box;
                   font-family: 'Noto Serif TC', serif;
             }
             .starpic{
@@ -15,6 +19,7 @@
                   width:30px;
             }
             .outside{
+                  margin:20px;
                   display:flex;
                   justify-content: center;
                   align-items: center;
@@ -25,17 +30,27 @@
                   flex-direction: column;
             }
             .upload{
+                  border:none;
+                  color: #575757;
+                  border-radius: 6px;
+                  font-size:15px;
+                  font-weight:200;
+                  padding:3px 6px;
                   text-decoration: none;
                   float: right;
                   margin-top:10px;
                   font-family: 'Noto Serif TC', serif;
+                  cursor:pointer;
+            }
+            .upload:hover{
+                  background:#C3C3C3;
             }
             .recipe{
                   float: left;
             }
             .display_img{
                   padding: 10px;
-                  border: 1.5px solid #ddd;
+                  border: 1.5px solid #dbdbdb;
                   width: 350px;
                   height: 250px;
                   text-align:center;
@@ -45,7 +60,15 @@
                   justify-content: center;/*使子元素在 Flex 容器中水平居中對齊*/
                   align-items: center;/*子元素在 Flex 容器中垂直居中對齊*/
                   border-radius: 6px;
+                  cursor:pointer;
             }
+            .display_img:hover{
+                  background:#dbdbdb;
+            }
+            .display_img i{
+                  cursor:pointer;
+            }
+            
             label{
                   font-size: 18px;
                   display: flex;
@@ -68,20 +91,70 @@
                   border-radius: 6px;
                   resize: none;
             }
+            header{
+                  top:0px;
+                  left:0px;
+                  padding:15px 50px;
+                  background-color: #d9c3a8;
+                  display:flex;
+                  text-align: center;
+                  justify-content: space-between;
+                  align-items: center;
+            }
+            header h1{
+                  color:#373028;
+                  width:130px;
+                  position:relative;
+            }
+            header h1::after{
+                  content:'';
+                  position: absolute;
+                  background: #373028;
+                  width:100%;
+                  height:3px;
+                  left:0;
+                  bottom: -6px;
+                  border-radius: 50px;
+                  transform: scaleX(0);
+                  transition: transform .3s;
+            }
+            header h1:hover::after{
+                  transform: scaleX(1);
+            }
+            header a{
+                  color: #373028;
+                  font-size:20px;
+                  font-weight: 1000;
+                  text-decoration: none;
+                  width:100px;
+                  height:45px;
+                  background:transparent;
+                  border:1.5px solid #5b5043;
+                  outline:none;
+                  border-radius: 6px;
+                  position:relative;
+                  line-height: 40px;
+                  transition: .3s;
+            }
+            header a:hover{
+                  border:1.5px solid antiquewhite;
+                  background: antiquewhite;
+                  color:black;
+            }
       </style>
 </head>
 <body>
-      <div>
-            <h1 align="center">作品分享</h1>
-            <hr>
-      </div>
+      <header>
+            <h1>作品分享</h1>
+            <a href="#">回首頁</a>
+      </header>
       <div>       
             <div class="outside">
                   <!-- 輸入地方 -->
                   <div class="inside" style="margin-left: 10px;">
 
                         <label class="recipe">
-                              食譜名稱 : <input type="text" id="recipe" placeholder="請填入食譜名稱" required>
+                              食譜名稱 : <input type="text" id="recipe" placeholder="請填入食譜名稱" autofocus required>
                         </label><br>
 
                         <label class="content" style="margin-top: 20px;">
@@ -107,7 +180,6 @@
             </div>
       </div>
 
-
       <script>
             let star=document.getElementById("star");
             let starcnt=0;
@@ -117,9 +189,9 @@
                   let res='';
                   for(let i=1;i<6;i++){
                         if(i>starcnt)
-                              res+=`<i id='star-${i}' onclick='starcount()' class='bx bxs-star' style="color:#dedede; font-size:30px; margin-top:3px"></i>`;
+                              res+=`<i id='star-${i}' onclick='starcount()' class='bx bxs-star' style="color:#dedede; font-size:30px; margin-top:3px; cursor: pointer;"></i>`;
                         else{
-                              res+=`<i id='star-${i}' onclick='starcount()' class='bx bxs-star' style="color:#ffed3b; font-size:30px; margin-top:3px"></i>`;
+                              res+=`<i id='star-${i}' onclick='starcount()' class='bx bxs-star' style="color:#ffed3b; font-size:30px; margin-top:3px; cursor: pointer;"></i>`;
                         }
                   }
                   star.innerHTML=res;
