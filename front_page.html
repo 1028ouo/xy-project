@@ -23,32 +23,27 @@
                   box-sizing: border-box;
                   text-decoration: none;
                   height:35px;
-                  justify-content: center;
-                  align-items: center;
                   line-height: 35px;
             }
             nav:hover{
                   background-color: rgb(177, 43, 43);
             }
-
-            ul {
+            nav ul {
                   position: absolute;
                   display: none;
                   list-style: none;
                   margin: 0;
                   padding: 0;
-                  width: 98%;
             }
             nav:hover ul{
                   display: block;
+                  width: calc(97%/3);
             }
             nav ul li{
                   font-size: 18px;
                   border: 0.5px solid #CC3333;
                   text-align: center;
-                  background-color: #F0F0F0;
-                  width:calc(100%/3);
-                        
+                  background-color: #F0F0F0;    
             }
             nav ul li:hover{
                   background-color: #D94600;
@@ -72,6 +67,82 @@
             }
             iframe{
                   border: none;
+            }
+            .display_pot{
+                  position: relative;
+                  top: 300px;
+                  right: -1500px;
+                  transform: rotate(-10deg);
+                  transition: right 1s ease-in-out;
+            }
+            .display_tomato{
+                  position: relative;
+                  transform : translate(-100px,-400px);
+                  transition: transform 1s ease-in-out;
+            }
+            .display_mushroom{
+                  position: relative;
+                  transform : translate(-100px,-400px);
+                  transition: transform 1s ease-in-out;
+            }
+            .display_onion{
+                  position: relative;
+                  transform : translate(-700px,-400px);
+                  transition: transform 1s ease-in-out;
+            }
+            .display_green_onion{
+                  position: relative;
+                  transform : translate(-700px,-400px);
+                  transition: transform 1s ease-in-out;
+            }
+            .display_vegetable{
+                  position: relative;
+                  transform :  translate(-100px,-400px);
+                  transition: transform 1s ease-in-out;
+                  
+            }
+            @media(max-width:600px){
+                  nav{
+                        width:100%;
+                  }
+                  nav ul{
+                        position:relative;
+                        width:100%;
+                  }
+                  nav:hover ul{
+                        width: 100%;
+                        z-index: 1;
+                  }
+                  nav ul li{
+                        border:0px;
+                  }
+                  li{
+                        width:100%;
+                  }
+                  .display_pot{
+                        width:435px;
+                        height:150px;
+                        position: absolute;
+                        top: 500px;
+                        right: 10;
+                        transform: translate(-127%,-40%) rotate(-10deg);
+                        z-index: -1;
+                  }
+                  .display_tomato,
+                  .display_mushroom,
+                  .display_onion{
+                        position: relative;
+                        
+                  }
+                  .display_green_onion{
+                        position: absolute;
+                        top: 220px;
+                        
+                  }
+                  .display_vegetable{
+                        position: absolute;
+                        top: 35px;
+                  }
             }
       </style>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -101,7 +172,14 @@
             聯絡我們</a>
       </nav>
 
-      <div id="display_img"></div>
+      <div id="display_img" class="display_img">
+            <img src="pot.png" width="660px" height="222px" class="display_pot">
+            <img src="tomato.png" width="90px" height="93px" class="display_tomato">
+            <img src="mushroom.png" width="180px" height="180px" class="display_mushroom">
+            <img src="onion.png" width="140px" height="140px" class="display_onion">
+            <img src="green_onion.png" width="140px" height="140px" class="display_green_onion">
+            <img src="vegetable.png" width="150px" height="150px" class="display_vegetable">
+      </div>
 
       <script>
             //這邊是處理動畫事件
@@ -129,6 +207,26 @@
                   final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
                   noidea.innerHTML=final;
             }
+            window.addEventListener("load",function(){
+                  let pot_img = document.querySelector(".display_pot");
+                  pot_img.style.right = "-550px";
+
+                  let tomato_img = document.querySelector(".display_tomato");
+                  tomato_img.style.transform = "translate(130px,100px)";
+
+                  let mushroom_img = document.querySelector(".display_mushroom");
+                  mushroom_img.style.transform = "translate(50px,50px)";
+
+                  let onion_img = document.querySelector(".display_onion");
+                  onion_img.style.transform = "translate(-280px,30px)";
+
+                  let green_onion_img = document.querySelector(".display_green_onion");
+                  green_onion_img.style.transform = "translate(-400px,150px)";
+
+                  let vegetable_img = document.querySelector(".display_vegetable");
+                  vegetable_img.style.transform = "rotate(-20deg) translate(-380px,5px)";
+            })
+            
       </script>
 </body>
 </html>
