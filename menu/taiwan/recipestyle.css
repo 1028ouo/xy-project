@@ -29,6 +29,7 @@ nav:hover{
       background-color: rgb(177, 43, 43);
 }
 nav ul {
+      z-index:99;
       position: absolute;
       display: none;
       list-style: none;
@@ -66,6 +67,8 @@ button{
       height: 30px;
 }
 .display_recipe{
+      background: rgb(172,150,115);
+      background: linear-gradient(90deg, rgba(172,150,115,1) 0%, rgba(128,111,83,1) 33%, rgba(128,111,83,1) 66%, rgba(172,150,115,1) 100%);
       box-sizing: border-box;
       border-radius: 6px;
 }
@@ -93,13 +96,25 @@ img   {
       color:white;
       text-shadow: black 0.1em 0.1em 0.2em;
 }
-.allingredients{
-      border:1px solid black;
-      border-radius: 12px;
+.showtimeandnum{
       margin:5% 10%;
+}
+.showtimeandnum .outside .inside{
+      margin:2px;
+      border-radius: 12px;
+      background:#F0F0F0;
+}
+.allingredients{
+      border-radius: 12px;
+      background-color: #F0F0F0;
+      margin:5% 10%;
+      border:1px solid rgb(172,150,115);
 }
 #ingredients{
       padding:3% 0;
+}
+#ingredientslist1, #ingredientslist2{
+      border-right:1px solid black;
 }
 .outside{
       display:flex;
@@ -116,35 +131,51 @@ img   {
       color:#6c6150;
 }
 #process{
+      background-color: #F0F0F0;
       padding:0 3.9%;
-      font-size: 1.5em;
-      border:1px solid black;
-      border-radius: 12px;
       margin:5% 10%;
+      font-size: 1.5em;
+      border:1px solid rgb(172,150,115);
+      border-radius: 12px;
 }
-
-
-
-
-
-
-
-
-.floattitle{
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+.gotofrontpage{
+      padding:5% 10% 10% 10%;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      left: 0;
-      height:65px;
-      background-color: #CC3333;
-      font-size: 20px;
-      color:white;
-      opacity: 0.9;
+}
+.gotofrontpage a{
+      padding:2% 3%;
+      color: #373028;
+      font-size:1.5em;
+      font-weight: 1000;
+      text-decoration: none;
+      background:transparent;
+      border:1.5px solid #5b5043;
+      outline:none;
+      border-radius: 6px;
+      line-height: 40px;
+      transition: .3s;
+}
+.gotofrontpage a:hover{
+      border:1.5px solid antiquewhite;
+      background: antiquewhite;
+      color:black;
 }
 
 
 @media(max-width:600px){
+      .recipe_title{
+            width:100%;
+            text-align: center;
+            font-weight:bold;
+            font-size:2.2em;
+            position: absolute;
+            top:30%;
+            z-index:2;
+            color:white;
+            text-shadow: black 0.1em 0.1em 0.2em;
+      }
       nav{
             width:100%;
       }
@@ -169,12 +200,8 @@ img   {
             margin-top: 25px;
             overflow:visible;
             height:auto;
-            width:100%;
       }
-      .floattitle{
-            position: relative;
-      }
-      #qqq{
-            line-height: 65px;
+      #ingredientslist1, #ingredientslist2{
+            border-right:none;
       }
 }
