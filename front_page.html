@@ -3,71 +3,9 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>底哩雪斯</title>
+      <title>DELICIOUS</title>
+      <link rel="stylesheet" type="text/css" href="list.css" >
       <style>
-            @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
-            body{
-                  font-family: 'Noto Serif TC', serif;
-            }
-            h1{  
-                  text-align: center;
-            }
-            nav {
-                  font-weight: bold;
-                  font-size: 20px;
-                  color: white;
-                  text-align: center;
-                  width: calc(100%/3);
-                  background-color: #CC3333;
-                  float: left;
-                  box-sizing: border-box;
-                  text-decoration: none;
-                  height:35px;
-                  line-height: 35px;
-            }
-            nav:hover{
-                  background-color: rgb(177, 43, 43);
-            }
-            nav ul {
-                  position: absolute;
-                  display: none;
-                  list-style: none;
-                  margin: 0;
-                  padding: 0;
-            }
-            nav:hover ul{
-                  display: block;
-                  width: calc(97%/3);
-            }
-            nav ul li{
-                  font-size: 18px;
-                  border: 0.5px solid #CC3333;
-                  text-align: center;
-                  background-color: #F0F0F0;    
-            }
-            nav ul li:hover{
-                  background-color: #D94600;
-                  color:white;
-            }
-            li a{
-                  color:black;
-                  text-decoration:none;
-            }
-            li{
-                  color:black;
-            }
-            a:hover{
-                  color: white;
-            }
-            button{
-                  font-family: 'Noto Serif TC', serif;
-                  font-size: 15px;
-                  margin-bottom: 10px;
-                  height: 30px;
-            }
-            iframe{
-                  border: none;
-            }
             .display_pot{
                   position: relative;
                   top: 300px;
@@ -97,33 +35,16 @@
             }
             .display_vegetable{
                   position: relative;
-                  transform :  translate(-100px,-400px);
+                  transform :  translate(-700px,-400px);
                   transition: transform 1s ease-in-out;
                   
             }
             @media(max-width:600px){
-                  nav{
-                        width:100%;
-                  }
-                  nav ul{
-                        position:relative;
-                        width:100%;
-                  }
-                  nav:hover ul{
-                        width: 100%;
-                        z-index: 1;
-                  }
-                  nav ul li{
-                        border:0px;
-                  }
-                  li{
-                        width:100%;
-                  }
                   .display_pot{
                         width:435px;
                         height:150px;
                         position: absolute;
-                        top: 500px;
+                        top: 560px;
                         right: 10;
                         transform: translate(-127%,-40%) rotate(-10deg);
                         z-index: -1;
@@ -132,52 +53,59 @@
                   .display_mushroom,
                   .display_onion{
                         position: relative;
+                        left:50px;
+                        top: 10px;
                         
                   }
                   .display_green_onion{
-                        position: absolute;
-                        top: 220px;
+                        position: relative;
+                        top: -150px;
+                        left: 520px;
+                        transform: translate(-127%,-40%);
                         
                   }
                   .display_vegetable{
-                        position: absolute;
-                        top: 35px;
+                        position: relative;
+                        top: -150px;
+                        left: 460px;
+
                   }
             }
       </style>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-      <h1>底哩雪斯</h1>
-      <nav id="recipe_dir">食譜分類
+      <h1><a href="..//front_page.html">DELICIOUS</a></h1>
+
+      <nav id="recipe_dir">Recipe Categories
             <ul class="dishes">
-                  <li><a href="menu//taiwan//taiwan.html" target="_self">臺式料理</a></li>
-                  <li><a href="menu//korea//korea.html" target="_self">韓式料理</a></li>
-                  <li><a href="menu//japan//japan.html" target="_self">日式料理</a></li>
-                  <li><a href="menu//italy//italy.html" target="_self">義式料理</a></li>
-                  <li id="have_no_idea">想不到就<br>
-                        <button onclick="pickdishes()">點我點我</button>
+                  <li><a href="menu//taiwan//taiwan.html" target="_self">Taiwanese Cuisine</a></li>
+                  <li><a href="menu//korea//korea.html" target="_self">Korean Cuisine</a></li>
+                  <li><a href="menu//japan//japan.html" target="_self">Japanese Cuisine</a></li>
+                  <li><a href="menu//italy//italy.html" target="_self">Italian Cuisine</a></li>
+                  <li id="have_no_idea">Have no ideas?<br>
+                        <button onclick="pickdishes()">Click me!</button>
                   </li>
             </ul>
       </nav>
 
-      <nav id="social">社群分享
+      <nav id="social">Social Sharing
             <ul class="socialdetail">
-                  <li><a href="" target="_self">美食探店</a></li>
-                  <li><a href="" target="_self">作品分享</a></li>        
+                  <li><a href="" target="_self">Food Exploration</a></li>
+                  <li><a href="" target="_self">Work Sharing</a></li>        
             </ul>
       </nav>
 
-      <nav id="contact"><a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;">
-            聯絡我們</a>
-      </nav>
+      <a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;"><nav id="contact">
+            Contact us
+      </nav></a>
 
       <div id="display_img" class="display_img">
             <img src="pot.png" width="660px" height="222px" class="display_pot">
             <img src="tomato.png" width="90px" height="93px" class="display_tomato">
             <img src="mushroom.png" width="180px" height="180px" class="display_mushroom">
-            <img src="onion.png" width="140px" height="140px" class="display_onion">
-            <img src="green_onion.png" width="140px" height="140px" class="display_green_onion">
+            <img src="onion.png" width="160px" height="160px" class="display_onion">
+            <img src="green_onion.png" width="170px" height="170px" class="display_green_onion">
             <img src="vegetable.png" width="150px" height="150px" class="display_vegetable">
       </div>
 
@@ -202,9 +130,12 @@
       <script>
             let noidea=document.getElementById("have_no_idea");
             function pickdishes(){
-                  let final="想不到就<br>";
-                  final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
-                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
+                  let final="Have no ideas?<br>";
+                  let dish_array = ["Beef Noodles","Fried shrimp with scrambled egg","Spicy rice cake","Korean fried chicken","Soft-boiled","Japanese savory pancake","Corn chowder","Pesto chicken pasta"]
+                  let dish = dish_array[Math.floor(0+Math.random()*dish_array.length)];
+                  console.log(dish);
+                  final+=dish;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
+                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">Replace</button>`;
                   noidea.innerHTML=final;
             }
             window.addEventListener("load",function(){
@@ -212,21 +143,20 @@
                   pot_img.style.right = "-550px";
 
                   let tomato_img = document.querySelector(".display_tomato");
-                  tomato_img.style.transform = "translate(130px,100px)";
+                  tomato_img.style.transform = "translate(80px,100px)";
 
                   let mushroom_img = document.querySelector(".display_mushroom");
-                  mushroom_img.style.transform = "translate(50px,50px)";
+                  mushroom_img.style.transform = "translate(30px,0px)";
 
                   let onion_img = document.querySelector(".display_onion");
-                  onion_img.style.transform = "translate(-280px,30px)";
+                  onion_img.style.transform = "translate(-300px,10px)";
 
                   let green_onion_img = document.querySelector(".display_green_onion");
-                  green_onion_img.style.transform = "translate(-400px,150px)";
+                  green_onion_img.style.transform = "translate(-530px,150px)";
 
                   let vegetable_img = document.querySelector(".display_vegetable");
-                  vegetable_img.style.transform = "rotate(-20deg) translate(-380px,5px)";
+                  vegetable_img.style.transform = "rotate(-20deg) translate(-430px,-40px)";
             })
-            
       </script>
 </body>
 </html>
