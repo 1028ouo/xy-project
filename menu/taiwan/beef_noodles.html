@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>底哩雪斯</title>
+    <title>紅燒牛肉麵</title>
     <link rel="stylesheet" type="text/css" href="recipestyle.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -32,6 +32,98 @@
         聯絡我們</a>
     </nav>
 
+    <div id="display_recipe" class="display_recipe">
+        <div class="showheader">
+                <p class="recipe_title" id="recipe_title">紅<br>燒<br>牛<br>肉<br>麵</p>
+                <p><img src="https://tokyo-kitchen.icook.network/uploads/recipe/cover/442762/42c0e11a0f4be67e.jpg"></p>
+        </div>
+        <hr>
+        <div id="showtimeandnum" class="outside">
+            <div class="inside" style="border-right:1px solid black;">
+                <p>料理時間<br>90分鐘</p>
+            </div>
+            <div class="inside">
+                <p>份量約為<br>5人份</p>
+            </div>
+        </div>
+        <hr>
+        <div class="allingredients">
+            <div class="inside">
+                <p style="font-weight:bold; color:#6c6150; font-size: 1.3em;">準備食材</p>
+            </div>
+            <hr>
+            <div id="ingredients" class="outside">
+                <div id="ingredientslist1" class="inside" style="border-right:1px solid black;">
+                    <p>牛肋條 600克</p>
+                    <p>麵條 5份</p>
+                    <p>蔥 2支</p>
+                    <p>番茄 1.5顆</p>
+                    <p>月桂葉 2片</p>
+                    <p>冰糖 2大匙</p>
+                </div>
+                <div id="ingredientslist2" class="inside" style="border-right:1px solid black;">
+                    <p>蒜頭 10瓣</p>
+                    <p>老薑 5片</p>
+                    <p>洋蔥 0.5顆</p>
+                    <p>花椒粒 2小匙</p>
+                    <p>八角 2顆</p>
+                </div>
+                <div id="ingredientslist3" class="inside">
+                    <p>醬油 100毫升</p>
+                    <p>米酒 3大匙</p>
+                    <p>豆瓣醬 2大匙</p>
+                    <p>清水 1500毫升</p>
+                    <p>油 10克</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="process">
+            <p class="steptext">Step 1</p>
+            <p>牛肋條用餐巾紙擦拭吸收表面組織液後切條備用</p>
+            <hr>
+            <p class="steptext">Step 2</p>
+            <p>熱鍋倒油，爆香蔥段、薑片、蒜頭至微焦上色後加入牛肋條煎至上色</p>
+            <hr>
+            <p class="steptext">Step 3</p>
+            <p>牛肉倒出備用</p>
+            <hr>
+            <p class="steptext">Step 4</p>
+            <p>以剛剛炒出的牛油爆炒洋蔥至斷生</p>
+            <hr>
+            <p class="steptext">Step 5</p>
+            <p>加入醬油、及其他所有食材、香料、米酒</p>
+            <hr>
+            <p class="steptext">Step 6</p>
+            <p>加水至沒過牛肉</p>
+            <hr>
+            <p class="steptext">Step 7</p>
+            <p>水滾後轉小火燉煮60分鐘後再悶20分鐘</p>
+            <hr>
+            <p class="steptext">Step 8</p>
+            <p>牛肉湯關火後開始煮麵</p>
+            <hr>
+            <p class="steptext">Step 9</p>
+            <p>擺盤上菜</p>
+        </div>
+    </div>
+
+    <script>
+        let connectlink="recipe.json";
+
+        $.getJSON(connectlink, function(data){
+            for(let item of data){
+                let content='';
+                content=`<div class="card ">`
+                    +`<div class="card-body">`
+                    +`<h5 class="card-title">${item.title}</h5></a>`
+                    +`<p class="card-text"><small class="text-muted">${item.pic}-${item.process}</small></p>`
+                    +`</div></div>`;
+
+                $("#display_recipe").append(content);
+            }
+        });
+    </script>
 
 
 
