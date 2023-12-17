@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
 body{
       font-family: 'Noto Serif TC', serif;
+      
+}
+p{
+     color:#89795e; 
+}
+hr{
+      color:#1e1c18;
 }
 h1{  
       text-align: center;
@@ -58,32 +65,71 @@ button{
       margin-bottom: 10px;
       height: 30px;
 }
-.outside{
-      justify-content: center;
-      align-items: center;
-      display: flex;
-}
-.inside{
-      width:400px;
-      height:400px;
-      padding:35px;
+.display_recipe{
       box-sizing: border-box;
-      justify-content: center;
-      flex-direction: column;
-      border: 1px solid gray;
       border-radius: 6px;
-      margin:35px 75px;
+}
+.showheader{
+      width:100%;
+      height:auto;
+}
+#myheader{
+      align-items: center;
+      justify-content: center;
 }
 img   {
-      width: 100%;
+      width:100%;
+      opacity: 90%;
       height: auto;
+      z-index:1;
 }
-.ouremail{
-      text-decoration: none;
+.recipe_title{
+      width:100%;
+      text-align: center;
+      font-weight:bold;
+      font-size:5.2em;
+      position: absolute;
+      z-index:2;
+      color:white;
+      text-shadow: black 0.1em 0.1em 0.2em;
 }
-.ouremail:hover{
-      color:#D94600;
+.allingredients{
+      border:1px solid black;
+      border-radius: 12px;
+      margin:5% 10%;
 }
+#ingredients{
+      padding:3% 0;
+}
+.outside{
+      display:flex;
+}
+.inside{
+      width:100%;
+      font-size: 2.0em;
+      text-align:center;
+      flex-direction: row;
+}
+.steptext{
+      font-weight:bold;
+      font-size:1.5em;
+      color:#6c6150;
+}
+#process{
+      padding:0 3.9%;
+      font-size: 1.5em;
+      border:1px solid black;
+      border-radius: 12px;
+      margin:5% 10%;
+}
+
+
+
+
+
+
+
+
 .floattitle{
       position: fixed;
       bottom: 0;
@@ -95,9 +141,6 @@ img   {
       font-size: 20px;
       color:white;
       opacity: 0.9;
-}
-.boldtext{
-      font-weight: bold;
 }
 
 
