@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>作品分享上傳</title>
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-      <link rel="stylesheet" href="css/style.css"/>
+      <!-- <link rel="stylesheet" href="css/style.css"/> -->
       <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
             *{
@@ -215,8 +215,22 @@
                         document.getElementById("display_img").innerHTML = ""; // 清空預覽區域
                         document.getElementById("display_img").appendChild(imgElement); // 在預覽區域顯示圖片
             };
-            reader.readAsDataURL(input.files[0]);//讀取檔案，將檔案轉換為 Data URL 格式
-      }
+                  reader.readAsDataURL(input.files[0]);//讀取檔案，將檔案轉換為 Data URL 格式
+            }
+
+            document.getElementById("upload").addEventListener("click",function(){
+                  let recipe_name = document.getElementById("recipe").value;
+                  let star = starcnt;//數量
+                  let review = document.querySelector("textarea").value;
+
+                  let data = {
+                        recipe_name:recipe_name,
+                        star:star,
+                        review:review
+                  };
+                  localStorage.setItem("user_recipe",JSON.stringify(data))
+                  window.alert("Upload successful!");
+            });
       </script>
 </body>
 </html>

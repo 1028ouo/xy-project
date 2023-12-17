@@ -79,7 +79,7 @@
 
       <nav id="recipe_dir">Recipe Categories
             <ul class="dishes">
-                  <li><a href="menu//taiwan//taiwan.html" target="_self">Taiwanese Cuisine</a></li>
+                  <li><a href="menu/taiwan/taiwan.html" target="_self">Taiwanese Cuisine</a></li>
                   <li><a href="menu//korea//korea.html" target="_self">Korean Cuisine</a></li>
                   <li><a href="menu//japan//japan.html" target="_self">Japanese Cuisine</a></li>
                   <li><a href="menu//italy//italy.html" target="_self">Italian Cuisine</a></li>
@@ -133,8 +133,8 @@
                   let final="Have no ideas?<br>";
                   let dish_array = ["Beef Noodles","Fried shrimp with scrambled egg","Spicy rice cake","Korean fried chicken","Soft-boiled","Japanese savory pancake","Corn chowder","Pesto chicken pasta"]
                   let dish = dish_array[Math.floor(0+Math.random()*dish_array.length)];
-                  console.log(dish);
-                  final+=dish;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
+                  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
+                  final+=`<a href="#">`+dish+`</a>`;
                   final+=`<button onclick="pickdishes()" style="margin-left:5px;">Replace</button>`;
                   noidea.innerHTML=final;
             }
