@@ -61,6 +61,15 @@
             li{
                   color:black;
             }
+            nav ul{
+                  position: absolute;
+                  display: none;
+                  list-style: none;
+                  margin: 0;
+                  padding: 0;
+                  width: 98%;
+                  z-index: 100; 
+            }
             .dishes a:hover{
                   color: white;
             }
@@ -121,6 +130,36 @@
             }
             .dish-content{
                   overflow: auto;
+            }
+            @media(max-width:600px){
+                  nav{
+                        width:100%;
+                  }
+                  nav ul{
+                        position:relative;
+                        width:100%;
+                  }
+                  nav:hover ul{
+                        width: 100%;
+                  }
+                  nav ul li{
+                        border:0px;
+                        width: 100%;
+                        z-index: 1;
+                  }
+                  li{
+                        width:100%;
+                  }
+                  .dish{
+                        display: block;
+                        margin-bottom: 200px;
+                  }
+                  .image-container{
+                        margin-top: 70px;
+                  }
+                  .dish-content{
+                        margin-top: 10px;
+                  }
             }
             
       </style>
