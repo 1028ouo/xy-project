@@ -34,16 +34,15 @@
 
     <div id="display_recipe" class="display_recipe">
         <div class="showheader">
-                <p class="recipe_title" id="recipe_title">紅<br>燒<br>牛<br>肉<br>麵</p>
-                <p><img src="https://tokyo-kitchen.icook.network/uploads/recipe/cover/442762/42c0e11a0f4be67e.jpg"></p>
+                
         </div>
         <div class="showtimeandnum">
             <div class="outside">
-                <div class="inside">
-                    <p>料理時間<br>90分鐘</p>
+                <div class="inside" id="cookingtime">
+
                 </div>
-                <div class="inside">
-                    <p>份量約為<br>5人份</p>
+                <div class="inside" id="peoplenum">
+
                 </div>
             </div>
         </div>
@@ -54,57 +53,19 @@
             <hr>
             <div id="ingredients" class="outside">
                 <div id="ingredientslist1" class="inside">
-                    <p>牛肋條 600克</p>
-                    <p>麵條 5份</p>
-                    <p>蔥 2支</p>
-                    <p>番茄 1.5顆</p>
-                    <p>月桂葉 2片</p>
-                    <p>冰糖 2大匙</p>
+
                 </div>
                 <div id="ingredientslist2" class="inside">
-                    <p>蒜頭 10瓣</p>
-                    <p>老薑 5片</p>
-                    <p>洋蔥 0.5顆</p>
-                    <p>花椒粒 2小匙</p>
-                    <p>八角 2顆</p>
+
                 </div>
                 <div id="ingredientslist3" class="inside">
-                    <p>醬油 100毫升</p>
-                    <p>米酒 3大匙</p>
-                    <p>豆瓣醬 2大匙</p>
-                    <p>清水 1500毫升</p>
-                    <p>油 10克</p>
+
                 </div>
             </div>
         </div>
 
         <div id="process">
-            <p class="steptext">Step 1</p>
-            <p>牛肋條用餐巾紙擦拭吸收表面組織液後切條備用</p>
-            <hr>
-            <p class="steptext">Step 2</p>
-            <p>熱鍋倒油，爆香蔥段、薑片、蒜頭至微焦上色後加入牛肋條煎至上色</p>
-            <hr>
-            <p class="steptext">Step 3</p>
-            <p>牛肉倒出備用</p>
-            <hr>
-            <p class="steptext">Step 4</p>
-            <p>以剛剛炒出的牛油爆炒洋蔥至斷生</p>
-            <hr>
-            <p class="steptext">Step 5</p>
-            <p>加入醬油、及其他所有食材、香料、米酒</p>
-            <hr>
-            <p class="steptext">Step 6</p>
-            <p>加水至沒過牛肉</p>
-            <hr>
-            <p class="steptext">Step 7</p>
-            <p>水滾後轉小火燉煮60分鐘後再悶20分鐘</p>
-            <hr>
-            <p class="steptext">Step 8</p>
-            <p>牛肉湯關火後開始煮麵</p>
-            <hr>
-            <p class="steptext">Step 9</p>
-            <p>擺盤上菜</p>
+            
         </div>
         <div class="gotofrontpage">
             <a href="#">回首頁</a>
@@ -112,90 +73,58 @@
     </div>
 
     <script>
-        let connectlink="recipe.json";
+        let connectlink="https://1028ouo.github.io/xy-project/menu/recipe.json";
 
         $.getJSON(connectlink, function(data){
+            let food;
             for(let item of data){
-                let content='';
-                content=`<div id="display_recipe" class="display_recipe">
-        <div class="showheader">
-                <p class="recipe_title" id="recipe_title">${item.title}</p>
-                <p><img src="${item.pic}"></p>
-        </div>
-        <div class="showtimeandnum">
-            <div class="outside">
-                <div class="inside">
-                    <p>料理時間<br>${item.cookingtime}</p>
-                </div>
-                <div class="inside">
-                    <p>份量約為<br>${item.peoplenum}</p>
-                </div>
-            </div>
-        </div>
-        <div class="allingredients">
-            <div class="inside">
-                <p style="font-weight:bold; color:#6c6150; font-size: 1.3em;">準備食材</p>
-            </div>
-            <hr>`
-            +`<div id="ingredients" class="outside">
-                <div id="ingredientslist1" class="inside">
-                    <p>牛肋條 600克</p>
-                    <p>麵條 5份</p>
-                    <p>蔥 2支</p>
-                    <p>番茄 1.5顆</p>
-                    <p>月桂葉 2片</p>
-                    <p>冰糖 2大匙</p>
-                </div>
-                <div id="ingredientslist2" class="inside">
-                    <p>蒜頭 10瓣</p>
-                    <p>老薑 5片</p>
-                    <p>洋蔥 0.5顆</p>
-                    <p>花椒粒 2小匙</p>
-                    <p>八角 2顆</p>
-                </div>
-                <div id="ingredientslist3" class="inside">
-                    <p>醬油 100毫升</p>
-                    <p>米酒 3大匙</p>
-                    <p>豆瓣醬 2大匙</p>
-                    <p>清水 1500毫升</p>
-                    <p>油 10克</p>
-                </div>
-            </div>
-        </div>`
+                if(item.title=="滑蛋蝦仁"){
+                    food=item;
+                    console.log(food);
+                    break;
+                }
+            }
+                
+            let content='';
+            content=`<p class="recipe_title" id="recipe_title">`;
+            let length=food.title.length;
+            let str=food.title;
+            for(let i=0;i<length;i++){
+                content+=`${str[i]}<br>`;
+            }
+            content+=`</p><p><img src="${food.pic}"></p>`;
+            $(".showheader").append(content);
 
-        +`<div id="process">
-            <p class="steptext">Step 1</p>
-            <p>牛肋條用餐巾紙擦拭吸收表面組織液後切條備用</p>
-            <hr>
-            <p class="steptext">Step 2</p>
-            <p>熱鍋倒油，爆香蔥段、薑片、蒜頭至微焦上色後加入牛肋條煎至上色</p>
-            <hr>
-            <p class="steptext">Step 3</p>
-            <p>牛肉倒出備用</p>
-            <hr>
-            <p class="steptext">Step 4</p>
-            <p>以剛剛炒出的牛油爆炒洋蔥至斷生</p>
-            <hr>
-            <p class="steptext">Step 5</p>
-            <p>加入醬油、及其他所有食材、香料、米酒</p>
-            <hr>
-            <p class="steptext">Step 6</p>
-            <p>加水至沒過牛肉</p>
-            <hr>
-            <p class="steptext">Step 7</p>
-            <p>水滾後轉小火燉煮60分鐘後再悶20分鐘</p>
-            <hr>
-            <p class="steptext">Step 8</p>
-            <p>牛肉湯關火後開始煮麵</p>
-            <hr>
-            <p class="steptext">Step 9</p>
-            <p>擺盤上菜</p>
-        </div>
-        <div class="gotofrontpage">
-            <a href="#">回首頁</a>
-        </div></div>`;
 
-                $("#display_recipe").append(content);
+            content=`<p>料理時間<br>${food.cookingtime}</p>`;
+            $("#cookingtime").append(content);
+                
+            content=`<p>份量約為<br>${food.peoplenum}</p>`;
+            $("#peoplenum").append(content);
+
+            let foodlist=food.ingredients;
+            foodlist=foodlist.split(",");
+
+            length=foodlist.length;
+            let list1='', list2='', list3='';
+            for(let i=0;i<length;i++){
+                content=`<p>${foodlist[i]}</p>`;
+                let cnt=i;
+                cnt%=3;
+                $(`#ingredientslist${cnt+1}`).append(content);
+            }
+
+            foodlist=food.process;
+            length=foodlist.length;
+            let cnt=1;
+            for(let step of foodlist){
+                content=`<p class="steptext">Step ${cnt}</p>`;
+                cnt++;
+                content+=`<p>${step}</p>`;
+                if(cnt<=length){
+                    content+=`<hr>`;
+                }
+                $(`#process`).append(content);
             }
         });
     </script>
@@ -226,26 +155,6 @@
                 final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
                 noidea.innerHTML=final;
         }
-        window.addEventListener("load",function(){
-                let pot_img = document.querySelector(".display_pot");
-                pot_img.style.right = "-550px";
-
-                let tomato_img = document.querySelector(".display_tomato");
-                tomato_img.style.transform = "translate(130px,100px)";
-
-                let mushroom_img = document.querySelector(".display_mushroom");
-                mushroom_img.style.transform = "translate(50px,50px)";
-
-                let onion_img = document.querySelector(".display_onion");
-                onion_img.style.transform = "translate(-280px,30px)";
-
-                let green_onion_img = document.querySelector(".display_green_onion");
-                green_onion_img.style.transform = "translate(-400px,150px)";
-
-                let vegetable_img = document.querySelector(".display_vegetable");
-                vegetable_img.style.transform = "rotate(-20deg) translate(-380px,5px)";
-        })
-        
     </script>
 </body>
 </html>
