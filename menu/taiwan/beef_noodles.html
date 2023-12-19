@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>紅燒牛肉麵</title>
     <link rel="stylesheet" type="text/css" href="recipestyle.css">
+    <script src="https://1028ouo.github.io/xy-project/animation_btn.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
@@ -110,70 +111,5 @@
             <a href="#">回首頁</a>
         </div>
     </div>
-
-    <script>
-        let connectlink="recipe.json";
-
-        $.getJSON(connectlink, function(data){
-            for(let item of data){
-                let content='';
-                content=`<div class="card ">`
-                    +`<div class="card-body">`
-                    +`<h5 class="card-title">${item.title}</h5></a>`
-                    +`<p class="card-text"><small class="text-muted">${item.pic}-${item.process}</small></p>`
-                    +`</div></div>`;
-
-                $("#display_recipe").append(content);
-            }
-        });
-    </script>
-
-    <script>
-        //這邊是處理動畫事件
-        $("ul").hide();
-        $("#recipe_dir").mouseenter(function(){
-                $(".dishes").slideDown("slow");
-        });
-        $("#recipe_dir").mouseleave(function(){
-                $("ul").hide();
-        });
-        
-        $("#social").mouseenter(function(){
-                $(".socialdetail").slideDown("slow");
-        });
-        $("#social").mouseleave(function(){
-                $("ul").hide();
-        });
-    </script>
-
-    <script>
-        let noidea=document.getElementById("have_no_idea");
-        function pickdishes(){
-                let final="想不到就<br>";
-                final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
-                final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
-                noidea.innerHTML=final;
-        }
-        window.addEventListener("load",function(){
-                let pot_img = document.querySelector(".display_pot");
-                pot_img.style.right = "-550px";
-
-                let tomato_img = document.querySelector(".display_tomato");
-                tomato_img.style.transform = "translate(130px,100px)";
-
-                let mushroom_img = document.querySelector(".display_mushroom");
-                mushroom_img.style.transform = "translate(50px,50px)";
-
-                let onion_img = document.querySelector(".display_onion");
-                onion_img.style.transform = "translate(-280px,30px)";
-
-                let green_onion_img = document.querySelector(".display_green_onion");
-                green_onion_img.style.transform = "translate(-400px,150px)";
-
-                let vegetable_img = document.querySelector(".display_vegetable");
-                vegetable_img.style.transform = "rotate(-20deg) translate(-380px,5px)";
-        })
-        
-    </script>
 </body>
 </html>
