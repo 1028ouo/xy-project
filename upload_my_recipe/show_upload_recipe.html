@@ -3,27 +3,200 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>show_upload_recipe</title>
+      <title>作品分享日記</title>
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
+            *{
+                  margin:0;
+                  padding:0;
+                  box-sizing: border-box;
+                  font-family: 'Noto Serif TC', serif;
+            }
+            .starpic{
+                  margin-top: 10px;
+                  width:30px;
+            }
+            .outside{
+                  margin:20px;
+                  display:flex;
+                  justify-content: center;
+                  align-items: center;
+            }
+            .inside{
+                  justify-content: center;
+                  align-items: center;
+                  flex-direction: column;
+            }
+            .upload{
+                  border:none;
+                  color: #575757;
+                  border-radius: 6px;
+                  font-size:15px;
+                  font-weight:200;
+                  padding:3px 6px;
+                  text-decoration: none;
+                  float: right;
+                  margin-top:10px;
+                  font-family: 'Noto Serif TC', serif;
+                  cursor:pointer;
+            }
+            .upload:hover{
+                  background:#C3C3C3;
+            }
+            .recipe{
+                  float: left;
+            }
+            .display_img{
+                  padding: 10px;
+                  border: 1.5px solid #dbdbdb;
+                  width: 350px;
+                  height: 250px;
+                  text-align:center;
+                  box-sizing: border-box;
+                  color: gray;
+                  display: flex; /*彈性*/
+                  justify-content: center;/*使子元素在 Flex 容器中水平居中對齊*/
+                  align-items: center;/*子元素在 Flex 容器中垂直居中對齊*/
+                  border-radius: 6px;
+                  cursor:pointer;
+            }
+            .display_img:hover{
+                  background:#dbdbdb;
+            }
+            .display_img i{
+                  cursor:pointer;
+            }
+            
+            label{
+                  font-size: 18px;
+                  display: flex;
+            }
+            input{
+                  width:135px;
+                  font-size: 15px;
+                  height:auto;
+                  margin-left: 7px;
+                  border-radius: 6px;
+                  word-wrap: break-word;
+                  padding: 5px;
+                  border: 1px solid black;
+            }
+            textarea{
+                  font-size: 15px;
+                  padding: 5px;
+                  border: 1px solid black;
+                  margin-left:7px;
+                  border-radius: 6px;
+                  resize: none;
+            }
+            header{
+                  top:0px;
+                  left:0px;
+                  padding:15px 50px;
+                  background-color: #d9c3a8;
+                  display:flex;
+                  text-align: center;
+                  justify-content: space-between;
+                  align-items: center;
+            }
+            header h1{
+                  color:#373028;
+                  width:200px;
+                  position:relative;
+            }
+            header h1::after{
+                  content:'';
+                  position: absolute;
+                  background: #373028;
+                  width:100%;
+                  height:3px;
+                  left:0;
+                  bottom: -6px;
+                  border-radius: 50px;
+                  transform: scaleX(0);
+                  transition: transform .3s;
+            }
+            header h1:hover::after{
+                  transform: scaleX(1);
+            }
+            header a{
+                  color: #373028;
+                  font-size:20px;
+                  font-weight: 1000;
+                  text-decoration: none;
+                  width:100px;
+                  height:45px;
+                  background:transparent;
+                  border:1.5px solid #5b5043;
+                  outline:none;
+                  border-radius: 6px;
+                  position:relative;
+                  line-height: 40px;
+                  transition: .3s;
+            }
+            header a:hover{
+                  border:1.5px solid antiquewhite;
+                  background: antiquewhite;
+                  color:black;
+            }
+            .whole{
+                  margin:20px;
+                  display:flex;
+                  justify-content: center;
+                  align-items: center;
+            }
+            .display {
+                  box-sizing: border-box;
+                  border: 1px dashed black; 
+                  margin-top: 50px;
+                  width: 600px;
+                  flex-direction: column;
+                  border-radius: 10px;
+                  padding: 20px;
+            }
+            .display p{
+                  font-size: 22px;
+            }
+            @media(max-width:600px){
+                  .display p{
+                        font-size: 18px;
+                  }
+            }
+      </style>
 </head>
 <body>
-      <div id="display">
-
+      <header>
+            <h1>作品分享日記</h1>
+            <a href="#">回首頁</a>
+      </header>
+      <div class="whole">
+            <div id="display" class="display"></div>
       </div>
+            
       <script>
-            let user_data = localStorage.getItem("user_recipe");
-
-            if(user_data){
-                  let data = JSON.parse(user_data);
+            for (let num = 0; num < localStorage.length; num++) {
                   let display = document.getElementById("display");
-                  let stars = '';
-                  for(let i=0;i<data.star;i++){
-                        stars +='<i class="bx bxs-star" style="color:#ffed3b; font-size:30px; margin-top:3px;"></i>';
+                  let key = localStorage.key(num);
+                  let user_data = localStorage.getItem(key);
+                  if (user_data) {
+                        let data = JSON.parse(user_data);
+                        let stars = '';
+                        for (let i = 0; i < data.star; i++) {
+                        stars += '<i class="bx bxs-star" style="color:#ffed3b; font-size:30px; margin-top:3px;"></i>';
+                        }
+                        let content = `<h1>${data.recipe_name}</h1>
+                            <p>實用程度:${stars}</p>
+                            <p>心得分享:${data.review}</p><br><br>`;
+
+                        if(data.image){
+                              let imgElement = document.createElement("img");
+                              imgElement.src = data.image;
+                              imgElement.style.width = "200px";
+                              display.appendChild(imgElement); 
+                        }
+                        display.innerHTML += content;     
                   }
-                  let content = `<h2>${data.recipe_name}</h2>
-                              <p>實用程度:${stars}</p>
-                              <p>心得分享:${data.review}</p>`;
-                  display.innerHTML = content;
             }
       </script>
 </body>
