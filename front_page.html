@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>DELICIOUS</title>
-      <link rel="stylesheet" type="text/css" href="list.css" >
+      <link rel="stylesheet" type="text/css" href="CSS/basicstyle.css" >
       <style>
             .display_pot{
                   position: relative;
@@ -109,54 +109,8 @@
             <img src="frontpage_img/vegetable.png" width="150px" height="150px" class="display_vegetable">
       </div>
 
-      <script>
-            //這邊是處理動畫事件
-            $("ul").hide();
-            $("#recipe_dir").mouseenter(function(){
-                  $(".dishes").slideDown("slow");
-            });
-            $("#recipe_dir").mouseleave(function(){
-                  $("ul").hide();
-            });
-            
-            $("#social").mouseenter(function(){
-                  $(".socialdetail").slideDown("slow");
-            });
-            $("#social").mouseleave(function(){
-                  $("ul").hide();
-            });
-      </script>
-
-      <script>
-            let noidea=document.getElementById("have_no_idea");
-            function pickdishes(){
-                  let final="Have no ideas?<br>";
-                  let dish_array = ["Beef Noodles","Fried shrimp with scrambled egg","Spicy rice cake","Korean fried chicken","Soft-boiled","Japanese savory pancake","Corn chowder","Pesto chicken pasta"]
-                  let dish = dish_array[Math.floor(0+Math.random()*dish_array.length)];
-                  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
-                  final+=`<a href="#">`+dish+`</a>`;
-                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">Replace</button>`;
-                  noidea.innerHTML=final;
-            }
-            window.addEventListener("load",function(){
-                  let pot_img = document.querySelector(".display_pot");
-                  pot_img.style.right = "-550px";
-
-                  let tomato_img = document.querySelector(".display_tomato");
-                  tomato_img.style.transform = "translate(80px,100px)";
-
-                  let mushroom_img = document.querySelector(".display_mushroom");
-                  mushroom_img.style.transform = "translate(30px,0px)";
-
-                  let onion_img = document.querySelector(".display_onion");
-                  onion_img.style.transform = "translate(-300px,10px)";
-
-                  let green_onion_img = document.querySelector(".display_green_onion");
-                  green_onion_img.style.transform = "translate(-530px,150px)";
-
-                  let vegetable_img = document.querySelector(".display_vegetable");
-                  vegetable_img.style.transform = "rotate(-20deg) translate(-430px,-40px)";
-            })
-      </script>
+      <script src="https://1028ouo.github.io/xy-project/Javascript/animation_nav.js"></script>
+      <script src="https://1028ouo.github.io/xy-project/Javascript/frontpage_img_animation.js"></script>
+      <script src="https://1028ouo.github.io/xy-project/Javascript/idea_btn.js"></script>
 </body>
 </html>

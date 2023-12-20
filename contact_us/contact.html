@@ -4,7 +4,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>CONTACT US</title>
-      <link rel="stylesheet" type="text/css" href="header.css" >
+      <link rel="stylesheet" type="text/css" href="../CSS/basicstyle.css" >
+      <link rel="stylesheet" type="text/css" href="contactstyle.css" >
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
@@ -61,36 +62,10 @@
       </div>
 
       <div class="floattitle">
-            <p id="qqq">Please contact us if you have questions!</p>
+            <p id="qqq">有任何問題歡迎聯絡我們！</p>
       </div>
       
-      
-      <script>
-            //這邊是處理動畫事件
-            $("ul").hide();
-            $("#recipe_dir").mouseenter(function(){
-                  $(".dishes").slideDown("slow");
-            });
-            $("#recipe_dir").mouseleave(function(){
-                  $("ul").hide();
-            });
-            
-            $("#social").mouseenter(function(){
-                  $(".socialdetail").slideDown("slow");
-            });
-            $("#social").mouseleave(function(){
-                  $("ul").hide();
-            });
-      </script>
-
-      <script>
-            let noidea=document.getElementById("have_no_idea");
-            function pickdishes(){
-                  let final="Have no ideas?<br>";
-                  final+=`Beef Noodles`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
-                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">Replace</button>`;
-                  noidea.innerHTML=final;
-            }
-      </script>
+      <script src="https://1028ouo.github.io/xy-project/Javascript/animation_nav.js"></script>
+      <script src="https://1028ouo.github.io/xy-project/Javascript/idea_btn.js"></script>
 </body>
 </html>
