@@ -7,6 +7,7 @@
     margin: 0 auto;
     padding:2% 5%;
     margin:3% auto;
+    margin-top:8%;
 }
 .image-container{
     height: 270px;
@@ -83,5 +84,19 @@
     li{
         width:100%;
     }
+    .display_recipe{
+        padding-top: 100px;
+    }
+    .dish{
+        display: block;
+        padding-bottom: 0;
+        width: 280px;
+    }
+    .image-container{
+        margin-top: 20px;
+    }
+    .dish-content{
+        margin-top: 20px;
+    } 
 }
             
