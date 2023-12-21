@@ -1,5 +1,5 @@
 .dish{
-    border:1px solid #DBDBDB;
+    border:1.5px solid #DBDBDB;
     border-radius: 6px;
     height:30%;
     display: flex;
@@ -8,8 +8,15 @@
     padding:2% 5%;
     margin:3% auto;
     margin-top:8%;
+    box-shadow: 7px 7px 25px 1px rgb(0,0,0,0.06);
+    transition: .3s ease-in-out;
+}
+.dish:hover{
+    cursor:pointer;
+    border-color: #857760;
 }
 .image-container{
+    margin-right:20px;
     height: 270px;
 }
 .image-container:hover{
@@ -28,8 +35,9 @@
     position: relative;
     color: white;
     text-align: center;
-    top:-280px;
+    top:-290px;
     opacity: 0;
+    transition: .2s ease-in;
 }
 .content:hover{
     opacity: 1;
@@ -58,11 +66,17 @@
         height:100%;
         display: block;
     }
+    #first_recipe{
+        margin-top:50px;
+    }
     .image-container{
         margin:2%;
     }
     .dish-content{
         margin-top: 10px;
+    }
+    .display_recipe{
+        padding-top: 50px;
     }
 }
 @media(max-width:600px){
@@ -84,8 +98,8 @@
     li{
         width:100%;
     }
-    .display_recipe{
-        padding-top: 100px;
+    #first_recipe{
+        margin-top:100px;
     }
     .dish{
         display: block;
