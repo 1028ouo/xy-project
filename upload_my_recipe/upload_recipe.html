@@ -233,23 +233,26 @@
                   let recipe_name = document.getElementById("recipe").value;
                   let star = starcnt;//數量
                   let review = document.querySelector("textarea").value;
-                  let data = {
-                        recipe_name:recipe_name,
-                        star:star,
-                        review:review,
-                        image:image
-                  };
-                  let time = Date.now();
-                  let key = `recipe_${time}`;
+                  if(recipe_name&&star&&review){
+                        let time = Date.now();
+                        let data = {
+                              recipe_name:recipe_name,
+                              star:star,
+                              review:review,
+                              image:image,
+                              time:time
+                        };
+                        let key = `recipe_${time}`;
 
-                  localStorage.setItem(key,JSON.stringify(data));
-                  window.alert("上傳成功!");
+                        localStorage.setItem(key,JSON.stringify(data));
+                        window.alert("上傳成功!");
 
-                  document.getElementById("recipe").value = "";
-                  starcnt = 0;
-                  showstar(starcnt);
-                  document.getElementById("display_img").innerHTML = '<label class="btn btn-info"><input id="upload_img" style="display:none;" type="file" onchange="previewImage(event)"><i class="fa fa-photo">點擊上傳圖片</i></label>';
-                  document.querySelector("textarea").value = "";
+                        document.getElementById("recipe").value = "";
+                        starcnt = 0;
+                        showstar(starcnt);
+                        document.getElementById("display_img").innerHTML = '<label class="btn btn-info"><input id="upload_img" style="display:none;" type="file" onchange="previewImage(event)"><i class="fa fa-photo">點擊上傳圖片</i></label>';
+                        document.querySelector("textarea").value = "";
+                  }
             });
       </script>
 </body>
