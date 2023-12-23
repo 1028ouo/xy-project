@@ -169,6 +169,18 @@
                   background-color: rgb(223, 214, 198);
                   width: 22%;
             }
+            .top{
+                  position: fixed;
+                  right: 1rem;
+                  bottom: 1rem;
+                  border-radius: 33%;
+                  border-color:rgb(227, 217, 210) ;
+                  background-color: rgb(227, 217, 210);
+                  font-size: 17px;
+                  color: black;
+                  width: 60px;
+                  height: 60px;
+            }
             @media(max-width:600px){
                   .text{
                         font-size: 18px;
@@ -188,9 +200,12 @@
             <h1>作品分享日記</h1>
             <a href="#">回首頁</a>
       </header>
+
+      <button class="top" id="top">Top</button>
+
       <div class="whole">
             <div id="display" class="display">
-                  <p class="my">我的日記</p><br><hr>
+                  <p class="my">我的日記</p><br><hr><br>
             </div>
       </div>
             
@@ -221,6 +236,19 @@
                         display.innerHTML += content;     
                   }
             }
+            //回頂端
+            $(function(){
+                  $('#top').click(function(){
+                        $('html,body').animate({scrollTop:0},333);
+                  });
+                  $(window).scroll(function(){
+                        if($(this).scrollTop()>0){
+                              $('#top').show();
+                        }else{
+                              $('#top').show();
+                        }
+                  }).scroll();
+            });
       </script>
 </body>
 </html>

@@ -6,6 +6,7 @@
       <title>作品分享上傳</title>
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <!-- <link rel="stylesheet" href="css/style.css"/> -->
+      
       <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
             *{
@@ -145,54 +146,81 @@
                   background: antiquewhite;
                   color:black;
             }
+            .error{
+                  color: red;
+                  margin-left: 5px;
+                  font-size: 16px;
+            }
+            .star:hover{
+                  color:#ffed3b;
+            }
+            .top{
+                  position: fixed;
+                  right: 1rem;
+                  bottom: 1rem;
+                  border-radius: 33%;
+                  border-color:rgb(227, 217, 210) ;
+                  background-color: rgb(227, 217, 210);
+                  font-size: 17px;
+                  color: black;
+                  width: 60px;
+                  height: 60px;
+                  
+                  
+            }
       </style>
 </head>
 <body>
       <header>
             <h1>作品分享</h1>
             <nav class="btn">
-                  <a href="#" class="share">作品分享區</a>
-                  <a href="#">回首頁</a>
+                  <a href="https://yen1102.github.io/recipe.github.io/show_upload.html" class="share">作品分享區</a>
+                  <a href="https://yen1102.github.io/recipe.github.io/frontpage.html">回首頁</a>
             </nav>
       </header>
+      <button class="top" id="top">Top</button>
       <div>       
             <div class="outside">
                   <!-- 輸入地方 -->
-                  <div class="inside" style="margin-left: 10px;">
+                  <div class="inside" style="margin-left: 10px;" id="inside">
+                        <form id="myform">
+                              <label class="recipe">
+                                    食譜名稱 : <input type="text" id="recipe" name="recipe" placeholder="請填入食譜名稱" required>
+                              </label><br>
 
-                        <label class="recipe">
-                              食譜名稱 : <input type="text" id="recipe" placeholder="請填入食譜名稱" autofocus required>
-                        </label><br>
+                              <label class="content" style="margin-top: 20px;">
+                                    <div id="textstar" style="margin-top: 5px;  margin-right:5px;">
+                                          實用程度 : </div>
+                                    <div id="star" name="star"></div>
+                              </label><br>
 
-                        <label class="content" style="margin-top: 20px;">
-                              <div id="textstar" style="margin-top: 5px;  margin-right:5px;">
-                                    實用程度 : </div>
-                              <div id="star"></div>
-                        </label><br>
+                              <label class="content">
+                                    心得分享 : <textarea rows="10" cols="25" name="content" placeholder="想說些什麼？" id="content" required></textarea>
+                              </label><br>
 
-                        <label class="content">
-                              心得分享 : <textarea rows="10" cols="25" placeholder="想說些什麼？"></textarea>
-                        </label><br>
-
-                        <!-- 用來顯示圖片的區域 -->
-                        <div id="display_img" class="display_img">
-                              <label class="btn btn-info">
-                                    <input id="upload_img" style="display:none;" type="file" onchange="previewImage(event)">
-                                    <i class="fa fa-photo">點擊上傳圖片</i>
-                              </label>
-                        </div>
-                        <button id="upload" class="upload">
-                              上傳作品
-                        </button><br>
+                              <!-- 用來顯示圖片的區域 -->
+                              <div id="display_img" class="display_img">
+                                    <label class="btn btn-info">
+                                          <input id="upload_img" style="display:none;" type="file" onchange="previewImage(event)">
+                                          <i class="fa fa-photo">點擊上傳圖片</i>
+                                    </label>
+                              </div>
+                              <button id="upload" class="upload" type="submit">
+                                    上傳作品
+                              </button><br>
+                        </form>
                   </div>
             </div>
       </div>
 
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
       <script>
             let star=document.getElementById("star");
             let starcnt=0;
             let image = '';
-
             showstar();
             function showstar(){
                   let res='';
@@ -211,7 +239,8 @@
                   id=parseInt(id[1]);
                   starcnt=id;
                   showstar();
-            }
+                  requiredstar();
+            }   
             function previewImage(event) {
                   var input = event.target;//從事件中取得目標元素（此處為 input 元素）
                   var reader = new FileReader();// 創建FileReader物件，用於讀取圖片檔案
@@ -247,12 +276,56 @@
                         localStorage.setItem(key,JSON.stringify(data));
                         window.alert("上傳成功!");
 
-                        document.getElementById("recipe").value = "";
+                        document.getElementById("recipe").value = " ";
                         starcnt = 0;
                         showstar(starcnt);
                         document.getElementById("display_img").innerHTML = '<label class="btn btn-info"><input id="upload_img" style="display:none;" type="file" onchange="previewImage(event)"><i class="fa fa-photo">點擊上傳圖片</i></label>';
-                        document.querySelector("textarea").value = "";
+                        document.querySelector("textarea").value = " ";
                   }
+            });
+            //必填
+            $(document).ready(function(){
+                  $('#myform').validate({
+                        rules: {
+                              recipe: {
+                                    required: true
+                              },
+                              star: {
+                                    required: true
+                              },
+                              content: {
+                                    required: true
+                              }
+                        },
+                        messages: {
+                              recipe: {
+                                    required: '*必填'
+                              },
+                              star: {
+                                    required: '*必填'
+                              },
+                              content: {
+                                    required: '*必填'
+                              }
+                        },
+                        submitHandler: function(form) {
+                              form.submit();
+                              
+                        }
+                  });
+            });
+            //回頂端
+            $(function(){
+                  $('#top').click(function(){
+                        $('html,body').animate({scrollTop:0},333);
+                  });
+                  $(window).scroll(function(){
+                        if($(this).scrollTop()>0){
+                              $('#top').show();
+                        }else{
+                              $('#top').show();
+                        }
+                  }).scroll();
             });
       </script>
 </body>
