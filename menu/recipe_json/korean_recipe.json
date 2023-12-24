@@ -1,7 +1,8 @@
 [
 {
   "title":"辣炒年糕",
-  "introduce":"好吃",
+  "link":"https://1028ouo.github.io/xy-project/menu/korea/toboki.html",
+  "introduce":"辣炒年糕是韓國風味獨特的美食，以辣椒醬、蔬菜和Q彈的年糕條為主要成分，經高溫翻炒而成。其香辣口感和豐富層次的風味深受喜愛，是韓國料理中的經典之一。",
   "pic":"https://tokyo-kitchen.icook.network/uploads/recipe/cover/101981/b77a7b3ebbf4b094.jpg",
   "peoplenum":"3人份",
 	"cookingtime":"30分鐘",
@@ -16,6 +17,8 @@
 },
 {
   "title":"韓式炸雞",
+  "link":"https://1028ouo.github.io/xy-project/menu/korea/fried_chicken.html",
+  "introduce":"韓式炸雞是韓國的經典美食，以其酥脆外皮和多汁內部聞名。經特殊醃料浸泡後，裹上麵粉或澱粉油炸，口感極佳。搭配多種口味的醬汁，成為社交場合和聚會的熱門下酒菜。",
   "pic":"https://tokyo-kitchen.icook.network/uploads/recipe/cover/387363/4a5657441e5f35ad.jpg",
   "peoplenum":"2人份",
 	"cookingtime":"30分鐘",
