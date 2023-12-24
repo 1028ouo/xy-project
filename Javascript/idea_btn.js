@@ -5,6 +5,6 @@ function pickdishes(){
         let dish = dish_array[Math.floor(0+Math.random()*dish_array.length)];
         final+=dish;
         console.log(dish);
-        final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
+        final+=`<button onclick="pickdishes()" class="btn" style="margin-left:5px;">換一道</button>`;
         noidea.innerHTML=final;
 }
