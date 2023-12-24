@@ -5,6 +5,11 @@
 }
 body{
       font-family: 'Noto Serif TC', serif;
+      background: url("https://media.istockphoto.com/id/1294763851/zh/%E5%90%91%E9%87%8F/%E7%A9%BA%E7%A9%BA%E7%99%BD%E5%85%89%E9%9C%9C%E6%88%96%E7%B1%B3%E8%89%B2%E5%BD%A9%E8%89%B2%E5%9E%83%E5%9C%BE%E7%B4%8B%E7%90%86%E5%90%91%E9%87%8F%E8%83%8C%E6%99%AF.jpg?s=612x612&w=0&k=20&c=QAiN6_RBOtKm7m6bu4KOTc9cIZfLuPkJQBV5EpVCiRA=");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
 }
 h1{
       font-family: chenyu;
@@ -90,7 +95,7 @@ a:hover{
       transform: scale(0.98);
 }
 .random_dishes{
-      font-size:25px;
+      font-size:1.5rem;
 }
 
 

@@ -1,6 +1,6 @@
 window.addEventListener("load",function(){
         let pot_img = document.querySelector(".display_pot");
-        pot_img.style.right = "-550px";
+        pot_img.style.right = "-580px";
 
         let tomato_img = document.querySelector(".display_tomato");
         tomato_img.style.transform = "translate(130px,100px)";
@@ -12,8 +12,8 @@ window.addEventListener("load",function(){
         onion_img.style.transform = "translate(-280px,30px)";
 
         let green_onion_img = document.querySelector(".display_green_onion");
-        green_onion_img.style.transform = "translate(-400px,150px)";
+        green_onion_img.style.transform = "translate(-450px,150px)";
 
         let vegetable_img = document.querySelector(".display_vegetable");
-        vegetable_img.style.transform = "rotate(-20deg) translate(-380px,5px)";
+        vegetable_img.style.transform = "rotate(-20deg) translate(-400px,5px)";
 })
