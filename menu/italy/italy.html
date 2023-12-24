@@ -3,216 +3,58 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>義式料理</title>
-      <style>
-            @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
-            body{
-                  font-family: 'Noto Serif TC', serif;
-                  margin: 0;
-            }
-            h1{  
-                  text-align: center;
-            }
-            nav {
-                  font-weight: bold;
-                  font-size: 20px;
-                  color: white;
-                  text-align: center;
-                  width: calc(100%/3);
-                  background-color: #CC3333;
-                  float: left;
-                  box-sizing: border-box;
-                  text-decoration: none;
-                  height:35px;
-                  justify-content: center;
-                  align-items: center;
-                  line-height: 35px;
-            }
-            nav:hover{
-                  background-color: rgb(177, 43, 43);
-            }
-
-            ul {
-                  position: absolute;
-                  display: none;
-                  list-style: none;
-                  margin: 0;
-                  padding: 0;
-                  width: 98%;
-            }
-            nav:hover ul{
-                  display: block;
-            }
-            nav ul li{
-                  font-size: 18px;
-                  border: 0.5px solid #CC3333;
-                  text-align: center;
-                  background-color: #F0F0F0;
-                  width:calc(100%/3);
-                        
-            }
-            nav ul li:hover{
-                  background-color: #D94600;
-                  color:white;
-            }
-            li a{
-                  color:black;
-                  text-decoration:none;
-            }
-            li{
-                  color:black;
-            }
-            a:hover{
-                  color: white;
-            }
-            button{
-                  font-family: 'Noto Serif TC', serif;
-                  font-size: 15px;
-                  margin-bottom: 10px;
-                  height: 30px;
-            }
-            iframe{
-                  border: none;
-            }
-            /*圖片*/
-            .image {
-                  padding: 10px;
-                  width: 250px;
-                  height: 250px;
-                  text-align: center;
-            }
-            .image:hover{
-                  opacity: 0.7;
-            }
-
-            .dish {
-                  display: flex;
-                  width: 50%;
-                  margin: 0 auto;
-                  padding: 70px;
-                  padding-bottom: 0;
-
-            }
-            
-            .dish-content {
-                  margin-left: 0px;
-                  
-            }
-            .dish h1{
-                  text-align: left;
-                  margin: 0;
-            }
-            .dish h1:hover{
-                  text-decoration: underline;
-            }
-            .dish p{
-                  margin-top: 15px;
-                  margin-bottom: 0;
-            }
-            
-      </style>
+      <title>臺式料理</title>
+      <link rel="stylesheet" type="text/css" href="../../CSS/basicstyle.css" >
+      <link rel="stylesheet" type="text/css" href="../select_recipe_style.css" >
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-      <h1>底哩雪斯</h1>
+      <h1><a href="front_page.html">食在有料</a></h1>
       <nav id="recipe_dir">食譜分類
             <ul class="dishes">
-                  <li><a href="menu//taiwan//taiwan.html" target="_self">臺式料理</a></li>
-                  <li><a href="menu//korea//korea.html" target="_self">韓式料理</a></li>
-                  <li><a href="menu//japan//japan.html" target="_self">日式料理</a></li>
-                  <li><a href="menu//italy//italy.html" target="_self">義式料理</a></li>
+                  <li><a href="https://1028ouo.github.io/xy-project/menu/taiwan/taiwan.html" target="_self">臺式料理</a></li>
+                  <li><a href="https://1028ouo.github.io/xy-project/menu/korea/korea.html" target="_self">韓式料理</a></li>
+                  <li><a href="https://1028ouo.github.io/xy-project/menu/japan/japan.html" target="_self">日式料理</a></li>
+                  <li><a href="https://1028ouo.github.io/xy-project/menu/italy/italy.html" target="_self">義式料理</a></li>
                   <li id="have_no_idea">想不到就<br>
                         <button onclick="pickdishes()">點我點我</button>
                   </li>
             </ul>
       </nav>
 
-      <nav id="social">社群分享
+      <nav id="social">作品分享
             <ul class="socialdetail">
-                  <li><a href="" target="_self">美食探店</a></li>
-                  <li><a href="" target="_self">作品分享</a></li>        
+                  <li><a href="https://1028ouo.github.io/xy-project/upload_my_recipe/upload_recipe.html" target="_self">我的日記</a></li>     
             </ul>
       </nav>
 
-      <nav id="contact"><a href="contact_us/contact.html" onclick="contact_us()" style="text-decoration:none; color: white;">
-            聯絡我們</a>
+      <nav id="contact">
+            <a href="https://1028ouo.github.io/xy-project/contact_us/contact.html" style="text-decoration:none; color: white;">
+                  聯絡我們</a>
       </nav>
 
-      <div id="contact_container"></div>
-
-      <div class="dish-wrap">
-            <div class="dish">
-                  <a href="menu//taiwan//beef_noodles.html">
-                        <div>
-                              <img src="beef_noodles.JPG" class="image" onmouseover="mouseOver()" onmouseout="mouseOut()">
-                              <p id="hidden_text" style="opacity: 1;z-index: 2;">點我看食譜</p>
-                        </div>
-                  </a>
-                  <div class="dish-content">
-                        <a href="menu//taiwan//beef_noodles.html" style="text-decoration: none;color: black;"><h1>牛肉麵</h1></a>
-                        <p>牛肉麵是台灣最具代表性的麵食，常見的牛肉麵有分兩種，分別是紅燒和清燉，雖然大街小巷都有牛肉麵店，可是要做出真正受歡迎的好味道並不容易，一起來做一碗簡單又充滿台灣味的牛肉麵吧!</p>
-                  </div>
-            </div>
+      <div class="display_recipe">
       </div>
-
-      <div class="dish-wrap">
-            <div class="dish">
-                  <a href="menu//taiwan//beef_noodles.html"><img src="beef_noodles.JPG" class="image"></a>
-                  <div class="dish-content">
-                        <a href="menu//taiwan//beef_noodles.html" style="text-decoration: none;color: black;"><h1>牛肉麵</h1></a>
-                        <p>牛肉麵是台灣最具代表性的麵食，常見的牛肉麵有分兩種，分別是紅燒和清燉，雖然大街小巷都有牛肉麵店，可是要做出真正受歡迎的好味道並不容易，一起來做一碗簡單又充滿台灣味的牛肉麵吧!</p>
-                  </div>
-            </div>
-      </div>
-
+      <script src="https://1028ouo.github.io/xy-project/Javascript/animation_nav.js"></script>
+      <script src="https://1028ouo.github.io/xy-project/Javascript/idea_btn.js"></script>
       <script>
-            //這邊是處理動畫事件
-            $("ul").hide();
-            $("#recipe_dir").mouseenter(function(){
-                  $(".dishes").slideDown("slow");
-            });
-            $("#recipe_dir").mouseleave(function(){
-                  $("ul").hide();
-            });
+            let connectlink="https://1028ouo.github.io/xy-project/menu/recipe_json/taiwanese_recipe.json";
             
-            $("#social").mouseenter(function(){
-                  $(".socialdetail").slideDown("slow");
+            $.getJSON(connectlink, function(data){
+                  for(let item of data){
+                        let content='';
+                        content=`<div class="dish" id="first_recipe" onclick="javascript:location.href='${item.link}'">
+                        <div class="image-container">
+                        <img src="${item.pic}" class="image" title="點我看食譜">
+                        <div class="content"><p>點我看食譜</p>
+                        </div></div>
+                        <div class="dish-content">
+                        <h1>${item.title}</h1>
+                        <p>${item.introduce}</p>
+                        </div></div>`;
+                        $(".display_recipe").append(content);
+                  }
             });
-            $("#social").mouseleave(function(){
-                  $("ul").hide();
-            });
-      </script>
-
-      <script>
-            let noidea=document.getElementById("have_no_idea");
-            function pickdishes(){
-                  let final="想不到就<br>";
-                  final+=`牛肉麵`;  //這邊之後加之後我們有的食譜，先來碗牛肉麵嘻嘻
-                  final+=`<button onclick="pickdishes()" style="margin-left:5px;">換一道</button>`;
-                  noidea.innerHTML=final;
-            }
-
-            let contactContainer = document.getElementById("contact_container");
-            function contact_us(event){
-            event.preventDefault(); //防止跳到新視窗
-            
-            let iframe = document.createElement("iframe");
-            iframe.src = "contact_us/contact.html"; 
-            iframe.title = "Contact Form";
-            iframe.width = "100%";
-            iframe.height = "550px";
-
-            contactContainer.innerHTML = '';
-            contactContainer.append(iframe);
-            }
-
-            function mouseOver(){
-                  document.getElementById("hidden_text").style.opacity = 1;
-                  document.getElementById("hidden_text").style.zIndex = 2;
-            }
-            function mouseOut(){
-                  document.getElementById("hidden_text").style.opacity = 0;
-            }
       </script>
 </body>
 </html>

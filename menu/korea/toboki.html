@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韓式炸雞</title>
+    <link rel="stylesheet" type="text/css" href="recipestyle.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/basicstyle.css" >
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1><a href="front_page.html">食在有料</a></h1>
+    <nav id="recipe_dir">食譜分類
+          <ul class="dishes">
+                <li><a href="https://1028ouo.github.io/xy-project/menu/taiwan/taiwan.html" target="_self">臺式料理</a></li>
+                <li><a href="https://1028ouo.github.io/xy-project/menu/korea/korea.html" target="_self">韓式料理</a></li>
+                <li><a href="https://1028ouo.github.io/xy-project/menu/japan/japan.html" target="_self">日式料理</a></li>
+                <li><a href="https://1028ouo.github.io/xy-project/menu/italy/italy.html" target="_self">義式料理</a></li>
+                <li id="have_no_idea">想不到就<br>
+                      <button onclick="pickdishes()">點我點我</button>
+                </li>
+          </ul>
+    </nav>
+
+    <nav id="social">作品分享
+          <ul class="socialdetail">
+                <li><a href="https://1028ouo.github.io/xy-project/upload_my_recipe/upload_recipe.html" target="_self">我的日記</a></li>     
+          </ul>
+    </nav>
+
+    <nav id="contact">
+          <a href="https://1028ouo.github.io/xy-project/contact_us/contact.html" style="text-decoration:none; color: white;">
+                聯絡我們</a>
+    </nav>
+
+    <div id="display_recipe" class="display_recipe">
+        <div class="showheader">
+                
+        </div>
+        <div class="showtimeandnum">
+            <div class="outside">
+                <div class="inside" id="cookingtime">
+
+                </div>
+                <div class="inside" id="peoplenum">
+
+                </div>
+            </div>
+        </div>
+        <div class="allingredients">
+            <div class="inside">
+                <p style="font-weight:bold; color:#6c6150; font-size: 1.3em;">準備食材</p>
+            </div>
+            <hr>
+            <div id="ingredients" class="outside">
+                <div id="ingredientslist1" class="inside">
+
+                </div>
+                <div id="ingredientslist2" class="inside">
+
+                </div>
+                <div id="ingredientslist3" class="inside">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="process">
+            
+        </div>
+        <div class="gotofrontpage">
+            <a href="#">回首頁</a>
+        </div>
+    </div>
+
+    <script>
+        let connectlink="https://1028ouo.github.io/xy-project/menu/recipe_json/korean_recipe.json";
+
+        $.getJSON(connectlink, function(data){
+            let food;
+            for(let item of data){
+                if(item.title=="辣炒年糕"){
+                    food=item;
+                    console.log(food);
+                    break;
+                }
+            }
+                
+            let content='';
+            content=`<p class="recipe_title" id="recipe_title">`;
+            let length=food.title.length;
+            let str=food.title;
+            for(let i=0;i<length;i++){
+                content+=`${str[i]}<br>`;
+            }
+            content+=`</p><p><img src="${food.pic}"></p>`;
+            $(".showheader").append(content);
+
+
+            content=`<p>料理時間<br>${food.cookingtime}</p>`;
+            $("#cookingtime").append(content);
+                
+            content=`<p>份量約為<br>${food.peoplenum}</p>`;
+            $("#peoplenum").append(content);
+
+            let foodlist=food.ingredients;
+            foodlist=foodlist.split(",");
+
+            length=foodlist.length;
+            let list1='', list2='', list3='';
+            for(let i=0;i<length;i++){
+                content=`<p>${foodlist[i]}</p>`;
+                let cnt=i;
+                cnt%=3;
+                $(`#ingredientslist${cnt+1}`).append(content);
+            }
+
+            foodlist=food.process;
+            length=foodlist.length;
+            let cnt=1;
+            for(let step of foodlist){
+                content=`<p class="steptext">Step ${cnt}</p>`;
+                cnt++;
+                content+=`<p>${step}</p>`;
+                if(cnt<=length){
+                    content+=`<hr>`;
+                }
+                $(`#process`).append(content);
+            }
+        });
+    </script>
+
+    <script src="https://1028ouo.github.io/xy-project/Javascript/animation_nav.js"></script>
+    <script src="https://1028ouo.github.io/xy-project/Javascript/idea_btn.js"></script>
+</body>
+</html>
