@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>滑蛋蝦仁</title>
+    <title>大阪燒</title>
     <link rel="stylesheet" type="text/css" href="recipestyle.css">
     <link rel="stylesheet" type="text/css" href="../../CSS/basicstyle.css" >
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -74,12 +74,12 @@
     </div>
 
     <script>
-        let connectlink="https://1028ouo.github.io/xy-project/menu/recipe_json/taiwanese_recipe.json";
+        let connectlink="https://1028ouo.github.io/xy-project/menu/recipe_json/japanese_recipe.json";
 
         $.getJSON(connectlink, function(data){
             let food;
             for(let item of data){
-                if(item.title=="滑蛋蝦仁"){
+                if(item.title=="大阪燒"){
                     food=item;
                     console.log(food);
                     break;
